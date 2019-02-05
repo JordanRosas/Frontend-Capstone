@@ -51,13 +51,13 @@ export default class ApplicationViews extends Component{
   render(){
     return(
       <>
-        <Route  path = "/login" render={(props) => {
+        <Route  exact path = "/login" render={(props) => {
           return <LoginForm {...props} 
           verifyUsers={this.verifyUsers}
           users={this.state.users} />
         }}
         />
-        <Route path = "/login/new" render={(props) => {
+        <Route exact path = "/login/new" render={(props) => {
           return <RegisterForm {...props}
           postNewUser={this.postNewUser}
           langauges={this.state.languages}
@@ -65,7 +65,7 @@ export default class ApplicationViews extends Component{
         }}
       
         />
-        <Route exact path="/" render={props => {
+        <Route exact path="/home" render={props => {
           if(this.isAuthenticated()){
             return <HomePage  />
           }else{
@@ -73,6 +73,20 @@ export default class ApplicationViews extends Component{
           }
           
         }} />
+        <Route path="/home" render={props => {
+          if(this.isAuthenticated()){
+            return <SearchResults {...props}
+                    users={this.state.users}
+                    languages={this.props.languages}
+                    searchAllData={this.props.searchAllData}
+                      />
+
+          }else{
+            return <Redirect to="/login" />
+          }
+          
+        }} />
+        
         <Route exact path="/friends" render={props => {
           if(this.isAuthenticated()){
             return <FriendList />
