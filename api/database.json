@@ -1,0 +1,38 @@
+{
+  "users": [
+    {
+      "id": 1,
+      "username": "jrosie",
+      "password": "yea",
+      "email": "j@j.com",
+      "lat": "",
+      "lng": "",
+      "photoURL": "",
+      "languageId": 1
+    },
+    {
+      "username": "Hunter",
+      "password": "asd",
+      "email": "asd@asd.com",
+      "lat": "123",
+      "lng": "123",
+      "photoURL": "",
+      "languageId": 3,
+      "id": 2
+    }
+  ],
+  "languages": [
+    {
+      "id": 1,
+      "language": "Spanish"
+    },
+    {
+      "id": 2,
+      "language": "French"
+    },
+    {
+      "id": 3,
+      "language": "Russian"
+    }
+  ]
+}

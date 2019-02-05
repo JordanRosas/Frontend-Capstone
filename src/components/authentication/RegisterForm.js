@@ -1,0 +1,122 @@
+import React, { Component } from 'react'
+import SearchManager from '../../modules/SearchManager'
+
+export default class RegisterForm extends Component{
+  //setting state of the username and password fields
+  state={
+    username:"",
+    password:"",
+    email:"",
+    lat:"",
+    lng:"",
+    photoURL:"",
+    languages:[]
+  }
+
+  buildLanguageOptions(){
+    let languages = []
+    SearchManager.getAllLanguages()
+    .then(allLanguages => {
+      allLanguages.forEach(language => {
+        if(!languages.includes({id: language.id, language: language.language})){
+          languages.push({id: language.id, language: language.language})
+        }
+      })
+      this.setState({languages:languages})
+    })
+  }
+  componentDidMount(){
+    this.buildLanguageOptions();
+  }
+
+  handleFieldChange = evt => {
+    evt.preventDefault()
+    const stateToChange = {}
+    stateToChange[evt.target.id] = evt.target.value
+    this.setState(stateToChange)
+  }
+
+  createNewUser = evt => {
+    evt.preventDefault()
+    const newUser = {
+      username: this.state.username,
+      password:this.state.password,
+      email:this.state.email,
+      lat:this.state.lat,
+      lng:this.state.lng,
+      photoURL:this.state.photoURL,
+      languageId:parseInt(this.state.language)
+    }
+    this.props.postNewUser(newUser)
+    .then(() => this.props.history.push("/login/new"))
+  }
+
+  render(){
+    return(
+      <>
+      <form className="RegisterForm">
+        <div className="form-group">
+          <label htmlFor="username">Username: </label>
+          <input type="text" required
+                  className="form-control"
+                  onChange={this.handleFieldChange}
+                  id="username"
+                  placeholder="username" />
+        </div>
+        <div className="form-group">
+          <label htmlFor="password">Password: </label>
+          <input type="password" required
+                  className="form-control"
+                  onChange={this.handleFieldChange}
+                  id="password"
+                  placeholder="password" />
+        </div>
+        <div className="form-group">
+          <label htmlFor="email">Email: </label>
+          <input type="email" required
+                  className="form-control"
+                  onChange={this.handleFieldChange}
+                  id="email"
+                  placeholder="Email" />
+        </div>
+        <div className="form-group">
+          <label htmlFor="lat">Lat: </label>
+          <input type="text" required
+                  className="form-control"
+                  onChange={this.handleFieldChange}
+                  id="lat"
+                  placeholder="Lat" />
+        </div>
+        <div className="form-group">
+          <label htmlFor="lng">Lng: </label>
+          <input type="text" required
+                  className="form-control"
+                  onChange={this.handleFieldChange}
+                  id="lng"
+                  placeholder="Lng" />
+        </div>
+        <div className="form-group">
+          <label htmlFor="lng">Select a language: </label>
+          <select 
+                  className="form-control"
+                  onChange={this.handleFieldChange}
+                  id="language"
+                  placeholder="Select a language">
+                  <option key={0} defaultValue="">English</option>
+                  {
+                    this.state.languages.map(language => (
+                      <option key={language.id} value={language.id}>{language.language}</option>
+                    ))
+                  }
+                  
+          </select>
+
+        </div>
+        <button 
+          type="submit" 
+          onClick={this.createNewUser}>Sign Up</button>
+      </form>
+      </>
+    )
+  }
+}
