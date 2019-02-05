@@ -4,21 +4,21 @@ import NavBar from './components/nav/NavBar'
 import SearchManager from './modules/SearchManager'
 
 export default class PolyglotContainer extends Component{
-
+  state = {
+    languages:[]
+  }
   searchAllData = (searchQuery) =>{
-    let SearchResults = 0
+    // const SearchResults = {}
     return SearchManager.searchUserLanguages(searchQuery)
-    .then(response => SearchResults = response.id)
-    .then(() => this.setState(SearchResults))
-    .then(() => {
-      console.log(SearchResults)
-    })
+    //grabbing the language object being searched
+    .then(response =>  SearchManager.searchUsers(response[0].id))
+    .then(response  => this.setState({languages:response}))
   }
   render(){
     return(
       <>
         <NavBar searchAllData={this.searchAllData}/>
-        <ApplicationViews />
+        <ApplicationViews searchAllData={this.searchAllData} languages={this.state.languages} />
       </>
     )
   }
