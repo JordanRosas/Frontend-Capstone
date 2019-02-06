@@ -25,13 +25,10 @@ export default class LoginForm extends Component{
             isLoggedIn = true
           }
           if(isLoggedIn === true){
-            sessionStorage.setItem(
-              "credentials",
-              JSON.stringify({
-                username:this.state.username,
-                password:this.state.password
-              }))
-            this.props.history.push("/ ")
+            sessionStorage.setItem("username", user.id)
+            let userId = sessionStorage.getItem("username")
+            console.log(userId)
+            this.props.history.push("/")
           }
         })
       }

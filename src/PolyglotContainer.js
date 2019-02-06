@@ -18,7 +18,9 @@ export default class PolyglotContainer extends Component{
     return(
       <>
         <NavBar searchAllData={this.searchAllData}/>
-        <ApplicationViews searchAllData={this.searchAllData} languages={this.state.languages} />
+        <ApplicationViews 
+          searchAllData={this.searchAllData} 
+          languages={this.state.languages} />
       </>
     )
   }

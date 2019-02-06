@@ -9,13 +9,15 @@ import HomePage from './components/home/HomePage'
 import FriendList from './components/friends/FriendList'
 import MessageList from './components/messages/MessageList'
 import UserProfile from './components/profile/UserProfile'
+import FriendManager from './modules/FriendManager'
 export default class ApplicationViews extends Component{
 
   state= {
     users:[],
-    languages:[]
+    languages:[],
+    friends:[]
   }
-  isAuthenticated = () => sessionStorage.getItem("credentials") !== null
+  isAuthenticated = () => sessionStorage.getItem("username") !== null
 
   componentDidMount(){
     SearchManager.getAll().then(AllRes => {
@@ -28,6 +30,11 @@ export default class ApplicationViews extends Component{
         languages:AllLang
       }) 
       console.log(this.state)
+    })
+    FriendManager.getFollowers().then(AllFollows => {
+      this.setState({
+        friends:AllFollows
+      })
     })
   }
 
@@ -46,6 +53,18 @@ export default class ApplicationViews extends Component{
       users: allUsers
     }))
   }
+  followFriend = (friendObj) => {
+    FriendManager.postNewFollow(friendObj)
+    .then(() => FriendManager.getFollowers())
+    .then(follows => {
+      this.setState({
+        friends:follows
+      })
+    })
+  }
+
+    
+  
   
 
   render(){
@@ -79,6 +98,7 @@ export default class ApplicationViews extends Component{
                     users={this.state.users}
                     languages={this.props.languages}
                     searchAllData={this.props.searchAllData}
+                    followFriend={this.followFriend}
                       />
 
           }else{
