@@ -1,44 +1,34 @@
 {
   "users": [
     {
-      "id": 1,
-      "username": "jrosie",
-      "password": "yea",
-      "email": "j@j.com",
-      "lat": "",
-      "lng": "",
-      "photoURL": "",
-      "languageId": 1
-    },
-    {
-      "username": "Hunter",
+      "username": "Jordan",
       "password": "asd",
-      "email": "asd@asd.com",
+      "email": "jordanrosas1203@gmail.com",
       "lat": "123",
       "lng": "123",
       "photoURL": "",
       "languageId": 3,
-      "id": 2
+      "id": 1
     },
     {
       "username": "Russ",
       "password": "asd",
       "email": "asd@asd.com",
-      "lat": "123212",
-      "lng": "1232123",
+      "lat": "123",
+      "lng": "123",
       "photoURL": "",
       "languageId": 2,
-      "id": 3
+      "id": 2
     },
     {
-      "username": "Grady",
+      "username": "Hunter",
       "password": "asd",
       "email": "asd@asd.com",
       "lat": "123212",
       "lng": "1232123",
       "photoURL": "",
-      "languageId": 2,
-      "id": 4
+      "languageId": 1,
+      "id": 3
     }
   ],
   "languages": [
@@ -53,6 +43,18 @@
     {
       "id": 3,
       "language": "Russian"
+    }
+  ],
+  "friends": [
+    {
+      "id": 1,
+      "userId": 1,
+      "otherUserId": 3
+    },
+    {
+      "userId": 1,
+      "otherUserId": 2,
+      "id": 2
     }
   ]
 }
