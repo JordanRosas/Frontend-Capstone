@@ -27,7 +27,7 @@ constructFriend = evt => {
             this.props.languages.map(language => {
         return  <div key={language.id} >
                   <p>{language.username}</p>
-                  <p>Proficiency: {language.rate}</p>
+                  <p>Proficiency: {language.rate} out of 5</p>
                   <button type="button" id="followButton" onClick={this.constructFriend}> Follow</button>
                   <button>Message</button>
                 </div>

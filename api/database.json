@@ -21,6 +21,17 @@
       "languageId": 2,
       "rate": 4,
       "id": 2
+    },
+    {
+      "username": "H-metts",
+      "password": "asd",
+      "email": "asd@asd.com",
+      "lat": "123212",
+      "lng": "1232123",
+      "photoURL": "",
+      "languageId": 2,
+      "rate": 5,
+      "id": 3
     }
   ],
   "languages": [
@@ -52,21 +63,6 @@
       "userId": 1,
       "otherUserId": 3,
       "id": 3
-    },
-    {
-      "userId": 1,
-      "otherUserId": 3,
-      "id": 4
-    },
-    {
-      "userId": 1,
-      "otherUserId": 3,
-      "id": 5
-    },
-    {
-      "userId": 4,
-      "otherUserId": 2,
-      "id": 6
     }
   ]
 }
