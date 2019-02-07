@@ -1,34 +1,26 @@
 {
   "users": [
     {
-      "username": "Jordan",
-      "password": "asd",
-      "email": "jordanrosas1203@gmail.com",
-      "lat": "123",
-      "lng": "123",
-      "photoURL": "",
-      "languageId": 3,
-      "id": 1
-    },
-    {
-      "username": "Russ",
-      "password": "asd",
-      "email": "asd@asd.com",
-      "lat": "123",
-      "lng": "123",
-      "photoURL": "",
-      "languageId": 2,
-      "id": 2
-    },
-    {
-      "username": "Hunter",
+      "username": "Samantha",
       "password": "asd",
       "email": "asd@asd.com",
       "lat": "123212",
       "lng": "1232123",
       "photoURL": "",
       "languageId": 1,
-      "id": 3
+      "rate": 5,
+      "id": 1
+    },
+    {
+      "username": "Jordan",
+      "password": "asd",
+      "email": "asd@asd.com",
+      "lat": "123212",
+      "lng": "1232123",
+      "photoURL": "",
+      "languageId": 2,
+      "rate": 4,
+      "id": 2
     }
   ],
   "languages": [
@@ -55,6 +47,26 @@
       "userId": 1,
       "otherUserId": 2,
       "id": 2
+    },
+    {
+      "userId": 1,
+      "otherUserId": 3,
+      "id": 3
+    },
+    {
+      "userId": 1,
+      "otherUserId": 3,
+      "id": 4
+    },
+    {
+      "userId": 1,
+      "otherUserId": 3,
+      "id": 5
+    },
+    {
+      "userId": 4,
+      "otherUserId": 2,
+      "id": 6
     }
   ]
 }
