@@ -62,11 +62,6 @@ export default class ApplicationViews extends Component{
       })
     })
   }
-
-    
-  
-  
-
   render(){
     return(
       <>
@@ -80,7 +75,8 @@ export default class ApplicationViews extends Component{
           return <RegisterForm {...props}
           postNewUser={this.postNewUser}
           langauges={this.state.languages}
-          users={this.state.users} />
+          users={this.state.users}  />
+          
         }}
       
         />

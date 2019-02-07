@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import SearchManager from '../../modules/SearchManager'
-
+import ResetRating from '../Rating/RatingSystem'
 export default class RegisterForm extends Component{
   //setting state of the username and password fields
   state={
@@ -10,6 +10,7 @@ export default class RegisterForm extends Component{
     lat:"",
     lng:"",
     photoURL:"",
+    rate:"",
     languages:[]
   }
 
@@ -36,6 +37,11 @@ export default class RegisterForm extends Component{
     this.setState(stateToChange)
   }
 
+  handleRatingChange = (rating) => {
+    this.setState({rate:rating})
+    
+  }
+
   createNewUser = evt => {
     evt.preventDefault()
     const newUser = {
@@ -45,10 +51,13 @@ export default class RegisterForm extends Component{
       lat:this.state.lat,
       lng:this.state.lng,
       photoURL:this.state.photoURL,
-      languageId:parseInt(this.state.language)
+      languageId:parseInt(this.state.language),
+      rate:this.state.rate
     }
+
     this.props.postNewUser(newUser)
-    .then(() => this.props.history.push("/login/new"))
+    .then(() => {console.log(newUser)})
+    .then(() => this.props.history.push("/login"))
   }
 
   render(){
@@ -110,7 +119,15 @@ export default class RegisterForm extends Component{
                   }
                   
           </select>
-
+          <div className="form-group">
+          
+          <label htmlFor="rate">Proficiency:</label>
+          <ResetRating 
+            id="rating"
+            onChange={this.handleRatingChange}
+            // onChange={this.handleRatingChange}
+            />
+          </div>
         </div>
         <button 
           type="submit" 
