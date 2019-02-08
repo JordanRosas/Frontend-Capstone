@@ -1,6 +1,6 @@
 import React, { Component } from "react"
 import { Link } from "react-router-dom"
-import SearchInput from '../search/SearchInput'
+// import SearchInput from '../search/SearchInput'
 import "bootstrap/dist/css/bootstrap.min.css"
 
 
@@ -28,9 +28,9 @@ class NavBar extends Component {
                     <li className="nav-item">
                         <Link onClick={this.endSessionStorage} className="nav-link" to="/login">Sign out</Link>
                     </li>
-                    <li>
+                    {/* <li>
                         <SearchInput {...this.props} />
-                    </li>
+                    </li> */}
                 </ul>
             </nav>
         )

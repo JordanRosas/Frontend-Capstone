@@ -8,39 +8,54 @@ corresponds with the followees Id. then we want to create a card of each of the
 logged in users friends*/
 // console.log("current user is " + follow.userId + " " + "friend is " + follow.otherUserId)
 export default class FriendsList extends Component{
-  state = {
-    currentFriends: []
-  }
+
+    state = {
+      friends:[]
+    }
 
   componentDidMount(){
-    let userId = sessionStorage.getItem("username")
-    let currentUserId = Number(userId)
-    console.log(currentUserId)
-    FriendManager.getFriendsByUser(currentUserId)
-    .then(response => {
-      this.setState({currentFriends:response})
-    })
+      this.buildFriendsList()
   }
+
+  //method to unfollow users
+  unfollowUsers = (id) => {
+    FriendManager.unfollowUsers(id)
+    .then(() => this.buildFriendsList())
+    
+  }
+  //method to build the logged in users follow list after removing a user from their list
+  buildFriendsList = () => {
+    let userId = sessionStorage.getItem("username")
+    let loggedInUser = Number(userId)
+    console.log(loggedInUser)
+    FriendManager.getFriendsByUser(loggedInUser)
+    .then(response => {
+      this.setState({friends: response})
+      console.log(response)
+  })
+}
 
   render(){
     return(
+      <>
+      <h1 className="followHeader">Your Polyglot Pals</h1>
       <section className="friends">
           <div className="current-friends-div">
-            <h2>Your Friends</h2>
-            {
-              this.state.currentFriends.map(eachFriend => {
-                return <div key={eachFriend.user.id}>
-                          <h2>{eachFriend.user.username}</h2>
-                          <p>Rate: {eachFriend.user.rate} out of 5 </p>
-                        </div>
-                      }     
-                    )}
           <div>
-            {this.props.languages.map(language => console.log(language))}
+            {this.state.friends.map(friend => {
+              console.log(friend.user.id)
+              return <div key={friend.id}>
+                        <h3>{friend.user.username}</h3>
+                        <button 
+                        type="btn" 
+                        className="deleteButton"
+                        onClick={() => this.unfollowUsers(friend.id)}>Unfollow</button>
+                      </div>
+            })}
           </div>
-
           </div>
       </section>
+      </>
     )
   }
 }

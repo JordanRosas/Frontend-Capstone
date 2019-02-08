@@ -10,7 +10,7 @@
       "id": 1
     },
     {
-      "username": "Sam",
+      "username": "emily",
       "password": "asd",
       "email": "asd@asd.com",
       "lat": "123",
@@ -19,11 +19,11 @@
       "id": 2
     },
     {
-      "username": "Zach",
+      "username": "JD",
       "password": "asd",
       "email": "asd@asd.com",
-      "lat": "1234",
-      "lng": "1234",
+      "lat": "123212",
+      "lng": "1232123",
       "photoURL": "",
       "id": 3
     }
@@ -37,13 +37,13 @@
     },
     {
       "rate": 5,
-      "languageId": 2,
+      "languageId": 3,
       "userId": 2,
       "id": 2
     },
     {
-      "rate": 1,
-      "languageId": 3,
+      "rate": 2,
+      "languageId": 2,
       "userId": 3,
       "id": 3
     }
@@ -63,6 +63,11 @@
     }
   ],
   "friends": [
-
-  ]
+    {
+      "currentUserId": 3,
+      "userId": 2,
+      "id": 1
+    }
+  ],
+  "messages": []
 }

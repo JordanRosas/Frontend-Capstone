@@ -7,16 +7,17 @@ import LoginForm from './components/authentication/LoginForm'
 import RegisterForm from './components/authentication/RegisterForm'
 import HomePage from './components/home/HomePage'
 import FriendList from './components/friends/FriendList'
-import MessageList from './components/messages/MessageList'
+import Messages from './components/messages/Messages'
 import UserProfile from './components/profile/UserProfile'
 import FriendManager from './modules/FriendManager'
+import MessageManager from './modules/MessageManager'
 export default class ApplicationViews extends Component{
 
   state= {
     users:[],
     languages:[],
     friends:[],
-    userLanguages:[]
+    messages:[]
   }
   isAuthenticated = () => sessionStorage.getItem("username") !== null
 
@@ -37,28 +38,42 @@ export default class ApplicationViews extends Component{
         friends:AllFollows
       })
     })
-    LoginManager.getUserLanguages().then(allUserLanguages => {
+    MessageManager.getAllMessages().then(allMessages => {
       this.setState({
-        userLanguages:allUserLanguages
+        messages:allMessages
       })
     })
   }
 
-
-
   postNewUser = newUser => 
     LoginManager.postNewUsers(newUser)
 
-    
-    postNewUserLanguage = userLangObj => 
-    LoginManager.postNewUserLanguage(userLangObj)
-    .then(() => LoginManager.get)
+    postNewMessage = (messageObj) => {
+      MessageManager.postNewMessage(messageObj)
+      .then(() => MessageManager.getAllMessages())
+      .then(allMessages => {
+        this.setState({
+          messages:allMessages
+        })
+      })
+    }
+    postNewUserLanguage = (userObj) => {
+      LoginManager.postNewUserLanguage(userObj)
+      .then(() => LoginManager.getAllUsers())
+      .then(allUsers => this.setState({
+        users:allUsers
+      }))
+    }
+
+
   verifyUsers = (username, password) => {
     LoginManager.verifyUsers(username, password)
     .then(allUsers => this.setState({
       users: allUsers
     }))
   }
+
+
   followFriend = (friendObj) => {
     FriendManager.postNewFollow(friendObj)
     .then(() => FriendManager.getFollowers())
@@ -68,6 +83,7 @@ export default class ApplicationViews extends Component{
       })
     })
   }
+
   render(){
     return(
       <>
@@ -89,7 +105,8 @@ export default class ApplicationViews extends Component{
         />
         <Route exact path="/home" render={props => {
           if(this.isAuthenticated()){
-            return <HomePage  />
+            return <HomePage 
+            searchAllData={this.props.searchAllData} />
           }else{
             return <Redirect to="/login" />
           }
@@ -102,7 +119,7 @@ export default class ApplicationViews extends Component{
                     languages={this.props.languages}
                     searchAllData={this.props.searchAllData}
                     followFriend={this.followFriend}
-                    userLanguages={this.state.userLanguages}
+                    userLanguages={this.props.userLanguages}
                       />
 
           }else{
@@ -115,8 +132,7 @@ export default class ApplicationViews extends Component{
           if(this.isAuthenticated()){
             return <FriendList {...props} 
             users={this.state.users}
-            languages={this.props.languages}
-            friends={this.state.friends}
+            userLanguages={this.props.languages}
             getAllFriends={this.getAllFriends}/>
           }else{
             return <Redirect to="/login" />
@@ -124,7 +140,9 @@ export default class ApplicationViews extends Component{
         }} />
         <Route exact path="/messages" render={props => {
           if(this.isAuthenticated()){
-            return <MessageList />
+            return <Messages {...props}
+            postNewMessage={this.postNewMessage}
+            messages={this.state.messages} />
           }else{
             return <Redirect to="/login" />
           }
