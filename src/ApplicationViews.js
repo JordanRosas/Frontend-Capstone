@@ -15,7 +15,8 @@ export default class ApplicationViews extends Component{
   state= {
     users:[],
     languages:[],
-    friends:[]
+    friends:[],
+    userLanguages:[]
   }
   isAuthenticated = () => sessionStorage.getItem("username") !== null
 
@@ -29,7 +30,7 @@ export default class ApplicationViews extends Component{
       this.setState({
         languages:AllLang
       }) 
-      console.log(this.state)
+
     })
     FriendManager.getFollowers().then(AllFollows => {
       this.setState({
@@ -39,14 +40,14 @@ export default class ApplicationViews extends Component{
   }
 
 
+
   postNewUser = newUser => 
     LoginManager.postNewUsers(newUser)
-    .then(() => LoginManager.getAllUsers())
-    .then(user => 
-      this.setState({
-        users:user
-      })
-    )
+
+    
+    postNewUserLanguage = userLangObj => 
+    LoginManager.postNewUserLanguage(userLangObj)
+    .then(() => LoginManager.get)
   verifyUsers = (username, password) => {
     LoginManager.verifyUsers(username, password)
     .then(allUsers => this.setState({
@@ -74,6 +75,7 @@ export default class ApplicationViews extends Component{
         <Route exact path = "/login/new" render={(props) => {
           return <RegisterForm {...props}
           postNewUser={this.postNewUser}
+          postNewUserLanguage={this.postNewUserLanguage}
           langauges={this.state.languages}
           users={this.state.users}  />
           
@@ -95,6 +97,7 @@ export default class ApplicationViews extends Component{
                     languages={this.props.languages}
                     searchAllData={this.props.searchAllData}
                     followFriend={this.followFriend}
+                    userLanguages={this.props.userLanguages}
                       />
 
           }else{
@@ -105,7 +108,11 @@ export default class ApplicationViews extends Component{
         
         <Route exact path="/friends" render={props => {
           if(this.isAuthenticated()){
-            return <FriendList />
+            return <FriendList {...props} 
+            users={this.state.users}
+            languages={this.props.languages}
+            friends={this.state.friends}
+            getAllFriends={this.getAllFriends}/>
           }else{
             return <Redirect to="/login" />
           }

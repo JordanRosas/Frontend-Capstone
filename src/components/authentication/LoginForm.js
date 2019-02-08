@@ -36,7 +36,8 @@ export default class LoginForm extends Component{
   render(){
     return(
       <form className="logInForm" onSubmit={this.onLogin}>
-      <h1 className="h3 mb-3 font-weight-normal title">Please sign in</h1>
+      <h1 className="h3 mb-3 font-weight-normal title">Polyglot Pal</h1>
+      <h3 className="h3 mb-3 font-weight-normal title">Please Sign In</h3>
       <label htmlFor="inputUsername">
           Username
       </label>

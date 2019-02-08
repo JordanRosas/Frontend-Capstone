@@ -4,6 +4,9 @@ export default{
   getFollowers(){
     return fetch(`${localHost}/friends`).then(res => res.json())
   },
+  getFriendsByUser(sessionId) {
+    return fetch(`${localHost}/friends?currentUserId=${sessionId}&_expand=user`).then(e => e.json());
+  },
   postNewFollow(friendObj){
     return fetch(`${localHost}/friends`, {
       method:"POST",

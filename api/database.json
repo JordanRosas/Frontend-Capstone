@@ -1,36 +1,59 @@
 {
   "users": [
     {
-      "username": "Samantha",
+      "username": "asd",
       "password": "asd",
-      "email": "asd@asd.com",
-      "lat": "123212",
-      "lng": "1232123",
+      "email": "asd",
+      "lat": "asd",
+      "lng": "asd",
       "photoURL": "",
-      "languageId": 1,
-      "rate": 5,
       "id": 1
     },
     {
-      "username": "Jordan",
-      "password": "asd",
-      "email": "asd@asd.com",
-      "lat": "123212",
-      "lng": "1232123",
+      "username": "Jordan Rosas",
+      "password": "1234",
+      "email": "jordanrosas1203@gmail.com",
+      "lat": "123",
+      "lng": "123",
       "photoURL": "",
-      "languageId": 2,
+      "id": 5
+    },
+    {
+      "username": "Leah",
+      "password": "asd",
+      "email": "leah@gmail.com",
+      "lat": "123",
+      "lng": "123",
+      "photoURL": "",
+      "id": 6
+    },
+    {
+      "username": "Emily",
+      "password": "asd",
+      "email": "emily@nss.com",
+      "lat": "123",
+      "lng": "123",
+      "photoURL": "",
+      "id": 7
+    }
+  ],
+  "userLanguages": [
+    {
       "rate": 4,
+      "languageId": 2,
+      "userId": 5,
+      "id": 1
+    },
+    {
+      "rate": 5,
+      "languageId": 1,
+      "userId": 6,
       "id": 2
     },
     {
-      "username": "H-metts",
-      "password": "asd",
-      "email": "asd@asd.com",
-      "lat": "123212",
-      "lng": "1232123",
-      "photoURL": "",
-      "languageId": 2,
       "rate": 5,
+      "languageId": 2,
+      "userId": 7,
       "id": 3
     }
   ],
@@ -50,19 +73,8 @@
   ],
   "friends": [
     {
-      "id": 1,
-      "userId": 1,
-      "otherUserId": 3
-    },
-    {
-      "userId": 1,
-      "otherUserId": 2,
-      "id": 2
-    },
-    {
-      "userId": 1,
-      "otherUserId": 3,
-      "id": 3
+      "currentUserId": 7,
+      "id": 1
     }
   ]
 }

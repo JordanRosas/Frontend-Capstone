@@ -6,14 +6,14 @@ export default class SearchResults extends Component{
 //to follow
 constructFriend = evt => {
   //creating an empty array to map over and eventually grab the ID 
-  let array = this.props.languages.map(language => language.id)
+  let array = this.props.userLanguages.map(userLanguage => console.log(userLanguage.id))
   evt.preventDefault()
       const friendObject = {
-      userId:Number(sessionStorage.getItem("username")),
+      currentUserId:Number(sessionStorage.getItem("username")),
       //grabbing the 
-      otherUserId: array[0]
-      
+      userId: array[0]
     }
+    console.log(friendObject.userId)
     this.props.followFriend(friendObject)
   }
 
@@ -24,10 +24,9 @@ constructFriend = evt => {
       <React.Fragment>
         <div>
           {
-            this.props.languages.map(language => {
-        return  <div key={language.id} >
-                  <p>{language.username}</p>
-                  <p>Proficiency: {language.rate} out of 5</p>
+            this.props.users.map(user => {
+        return  <div key={user.id} >
+                  <p>{user.username}</p>
                   <button type="button" id="followButton" onClick={this.constructFriend}> Follow</button>
                   <button>Message</button>
                 </div>

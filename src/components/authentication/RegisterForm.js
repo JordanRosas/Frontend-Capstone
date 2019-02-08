@@ -1,6 +1,8 @@
 import React, { Component } from 'react'
 import SearchManager from '../../modules/SearchManager'
 import ResetRating from '../Rating/RatingSystem'
+// import { longStackSupport } from 'q';
+// import LoginManager from '../../modules/LoginManager';
 export default class RegisterForm extends Component{
   //setting state of the username and password fields
   state={
@@ -11,7 +13,9 @@ export default class RegisterForm extends Component{
     lng:"",
     photoURL:"",
     rate:"",
-    languages:[]
+    languages:[],
+    userId:"",
+    
   }
 
   buildLanguageOptions(){
@@ -50,13 +54,17 @@ export default class RegisterForm extends Component{
       email:this.state.email,
       lat:this.state.lat,
       lng:this.state.lng,
-      photoURL:this.state.photoURL,
-      languageId:parseInt(this.state.language),
-      rate:this.state.rate
-    }
+      photoURL:this.state.photoURL
 
+    }
+    const userLanguage = {
+      rate:this.state.rate,
+      languageId:parseInt(this.state.language)
+    }
     this.props.postNewUser(newUser)
-    .then(() => {console.log(newUser)})
+    .then(response => {
+      userLanguage.userId = response.id
+      this.props.postNewUserLanguage(userLanguage)})
     .then(() => this.props.history.push("/login"))
   }
 
