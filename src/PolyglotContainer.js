@@ -11,7 +11,8 @@ export default class PolyglotContainer extends Component{
     // const SearchResults = {}
     return SearchManager.searchUserLanguages(searchQuery)
     //grabbing the language object being searched
-    .then(response =>  console.log(SearchManager.searchUsers(response.id)))
+    .then(response =>  SearchManager.searchUsers(response.id))
+    
     .then(response  => this.setState({languages:response}))
   }
   render(){

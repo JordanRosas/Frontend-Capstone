@@ -37,6 +37,11 @@ export default class ApplicationViews extends Component{
         friends:AllFollows
       })
     })
+    LoginManager.getUserLanguages().then(allUserLanguages => {
+      this.setState({
+        userLanguages:allUserLanguages
+      })
+    })
   }
 
 
@@ -97,7 +102,7 @@ export default class ApplicationViews extends Component{
                     languages={this.props.languages}
                     searchAllData={this.props.searchAllData}
                     followFriend={this.followFriend}
-                    userLanguages={this.props.userLanguages}
+                    userLanguages={this.state.userLanguages}
                       />
 
           }else{
