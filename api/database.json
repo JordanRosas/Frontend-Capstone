@@ -1,9 +1,22 @@
 {
   "users": [
-
+    {
+      "username": "SamanthaRosebud",
+      "password": "weasels",
+      "email": "samantha.weisel@kbwtech.com",
+      "lat": "123212",
+      "lng": "1232123",
+      "photoURL": "",
+      "id": 1
+    }
   ],
   "userLanguages": [
-
+    {
+      "rate": 2,
+      "languageId": 1,
+      "userId": 1,
+      "id": 1
+    }
   ],
   "languages": [
     {
@@ -19,8 +32,6 @@
       "language": "Russian"
     }
   ],
-  "friends": [
-
-  ],
+  "friends": [],
   "messages": []
 }
