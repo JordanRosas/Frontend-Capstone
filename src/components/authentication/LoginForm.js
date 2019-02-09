@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-
+import "./LogInForm.css"
 export default class LoginForm extends Component{
   // setting state of the register form firelds
   state = {
@@ -35,11 +35,13 @@ export default class LoginForm extends Component{
   }
   render(){
     return(
+
+      <div>
+      <h1 className="h3 mb-3 font-weight-normal title main-header">Polyglot Pal</h1>
       <form className="logInForm" onSubmit={this.onLogin}>
-      <h1 className="h3 mb-3 font-weight-normal title">Polyglot Pal</h1>
-      <h3 className="h3 mb-3 font-weight-normal title">Please Sign In</h3>
-      <label htmlFor="inputUsername">
-          Username
+      <h3 className="h3 mb-3 font-weight-normal title sign-in">Sign In</h3>
+      <label id="username" htmlFor="inputUsername">
+          Username:
       </label>
       <input 
           name="inputUsername"
@@ -47,8 +49,8 @@ export default class LoginForm extends Component{
           id="username"
           placeholder="Username"
           required="" autoFocus="" />
-      <label htmlFor="inputPassword">
-          Password
+      <label id="password" htmlFor="inputPassword">
+          Password:
       </label>
       <input
           name="inputPassword" 
@@ -56,15 +58,24 @@ export default class LoginForm extends Component{
           id="password"
           placeholder="Password"
           required="" />
-      <button className="signInButton" type="submit">
-          Login
-      </button>
-      <button className="registerButton" type="button"
-                  onClick={()=> this.props.history.push("/login/new")}
-                >
-              Register
-      </button>
-  </form>
+
+      <div class="form-row">
+        <div class="form-group col-md-6">
+          <button className="signInButton" type="submit">
+              Login
+          </button>
+          </div>
+  
+          <div class="form-group col-md-6">
+            <button className="registerButton" type="button"
+                        onClick={()=> this.props.history.push("/login/new")}
+                      >
+                    Sign Up
+            </button>
+            </div>
+        </div>
+    </form>
+  </div>
     )
   }
 }

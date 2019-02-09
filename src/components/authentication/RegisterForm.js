@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import SearchManager from '../../modules/SearchManager'
 import ResetRating from '../Rating/RatingSystem'
+import './RegisterForm.css'
 // import { longStackSupport } from 'q';
 // import LoginManager from '../../modules/LoginManager';
 export default class RegisterForm extends Component{
@@ -73,7 +74,8 @@ export default class RegisterForm extends Component{
     return(
       <>
       <form className="RegisterForm">
-        <div className="form-group">
+        <div class="form-row">
+          <div class="form-group col-md-6">
           <label htmlFor="username">Username: </label>
           <input type="text" required
                   className="form-control"
@@ -81,13 +83,14 @@ export default class RegisterForm extends Component{
                   id="username"
                   placeholder="username" />
         </div>
-        <div className="form-group">
+        <div class="form-group col-md-6">
           <label htmlFor="password">Password: </label>
           <input type="password" required
                   className="form-control"
                   onChange={this.handleFieldChange}
                   id="password"
                   placeholder="password" />
+        </div>
         </div>
         <div className="form-group">
           <label htmlFor="email">Email: </label>
@@ -138,7 +141,8 @@ export default class RegisterForm extends Component{
             />
           </div>
         </div>
-        <button 
+        <button
+          id="register"
           type="submit" 
           onClick={this.createNewUser}>Sign Up</button>
       </form>

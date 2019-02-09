@@ -1,19 +1,12 @@
-.userCards{
-  text-align: center;
-}
-.card {
-  width: 12rem;
-  height:12rem;
-}
-
-.card-title {
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-  flex-direction: column;
-}
-
-.card-link {
-  margin: 12px 0 0 0;
-  font-size: 0.7em;
+#resultCard{
+  display:flex;
+  flex-direction:column;
+  width:10%;
+  line-height:2;
+  padding:20px;
+  flex-wrap:wrap;
+  margin:0 auto;
+  margin-top:20px;
+  border:1px solid slategrey;
+  border-radius:20px;
 }

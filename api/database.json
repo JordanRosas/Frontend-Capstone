@@ -1,52 +1,9 @@
 {
   "users": [
-    {
-      "username": "Jordan Rosas",
-      "password": "asd",
-      "email": "jordanrosas1203@gmail.com",
-      "lat": "12",
-      "lng": "12",
-      "photoURL": "",
-      "id": 1
-    },
-    {
-      "username": "emily",
-      "password": "asd",
-      "email": "asd@asd.com",
-      "lat": "123",
-      "lng": "123",
-      "photoURL": "",
-      "id": 2
-    },
-    {
-      "username": "JD",
-      "password": "asd",
-      "email": "asd@asd.com",
-      "lat": "123212",
-      "lng": "1232123",
-      "photoURL": "",
-      "id": 3
-    }
+
   ],
   "userLanguages": [
-    {
-      "rate": 5,
-      "languageId": 1,
-      "userId": 1,
-      "id": 1
-    },
-    {
-      "rate": 5,
-      "languageId": 3,
-      "userId": 2,
-      "id": 2
-    },
-    {
-      "rate": 2,
-      "languageId": 2,
-      "userId": 3,
-      "id": 3
-    }
+
   ],
   "languages": [
     {
@@ -63,11 +20,7 @@
     }
   ],
   "friends": [
-    {
-      "currentUserId": 3,
-      "userId": 2,
-      "id": 1
-    }
+
   ],
   "messages": []
 }

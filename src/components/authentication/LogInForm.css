@@ -1,0 +1,72 @@
+.logInForm{
+  font-family: 'Roboto', sans-serif;
+  display:flex;
+  justify-content:center;
+  flex-direction: column;
+  width:41%;
+  margin:0 auto;
+  margin-top:110px;
+  background-color:#52617c;
+  opacity:0.8;
+  color:white;
+  padding-left:100px;
+  padding-right:100px;
+  padding-bottom:75px;
+  border-radius:20px;
+  color:black;
+  font-weight:bold;
+}
+#username{
+  font-size:20px;
+  border-radius:5px;
+  border:0;
+  padding:4px;
+}
+#password{
+  font-size:20px;
+  border-radius:5px;
+  border:0;
+  padding:4px;
+}
+.signInButton{
+  background-color:#007bce;
+  margin-top:8px;
+  color:black;
+  font-weight:bold;
+  border-radius:20px;
+  padding:8px;
+  border:0;
+  transition:all .5s ;
+  box-shadow:3px 3px 8px black;
+  margin-bottom:10px;
+  transition:0.5s;
+  width:97%;
+}
+.signInButton:hover{
+  cursor:pointer;
+  transform:scale(1.02);
+
+}
+.registerButton{
+  margin-top:8px;
+  background-color:#73dd96;
+  border-radius:20px;
+  padding:8px;
+  border:0;
+  box-shadow:3px 3px 8px black;
+  font-weight:bold;
+  transition:0.5s;
+  width:97%;
+}
+.registerButton:hover{
+  cursor:pointer;
+  transform:scale(1.02);
+}
+.main-header{
+  text-align:center;
+  
+}
+.sign-in{
+  text-align:center;
+  margin-top:20px;
+}
