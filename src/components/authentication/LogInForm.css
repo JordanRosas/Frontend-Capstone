@@ -5,42 +5,60 @@
   flex-direction: column;
   width:41%;
   margin:0 auto;
-  margin-top:110px;
-  background-color:#52617c;
-  opacity:0.8;
+  margin-top:200px;
+  background-color:#90a4ae;
+  opacity:0.95;
   color:white;
   padding-left:100px;
   padding-right:100px;
-  padding-bottom:75px;
   border-radius:20px;
   color:black;
   font-weight:bold;
+  box-shadow:2px 2px 8px black;
+  margin-top:-600px;
 }
 #username{
   font-size:20px;
   border-radius:5px;
   border:0;
   padding:4px;
+  /* margin-left:80px; */
 }
 #password{
   font-size:20px;
   border-radius:5px;
   border:0;
   padding:4px;
+  /* margin-left:80px; */
+}
+#usernameLabel{
+  margin-left:65px;
+}
+#passwordLabel{
+  margin-left:65px;
+}
+.Username{
+  margin:0 auto;
+  width:70%;
+}
+.Password{
+  margin:0 auto;
+  width:70%;
 }
 .signInButton{
-  background-color:#007bce;
-  margin-top:8px;
+  background-color:#4fc3f7;
+  margin-top:30px;
   color:black;
   font-weight:bold;
-  border-radius:20px;
+  border-radius:10px;
   padding:8px;
   border:0;
   transition:all .5s ;
-  box-shadow:3px 3px 8px black;
+  box-shadow:3px 3px 8px gray;
   margin-bottom:10px;
   transition:0.5s;
-  width:97%;
+  width:70%;
+  margin-left:62px;
 }
 .signInButton:hover{
   cursor:pointer;
@@ -48,15 +66,16 @@
 
 }
 .registerButton{
-  margin-top:8px;
-  background-color:#73dd96;
-  border-radius:20px;
+  margin-top:30px;
+  background-color:#00e676;
+  border-radius:10px;
   padding:8px;
   border:0;
-  box-shadow:3px 3px 8px black;
+  box-shadow:3px 3px 8px gray;
   font-weight:bold;
   transition:0.5s;
-  width:97%;
+  width:70%;
+  margin-right:62pxpx;
 }
 .registerButton:hover{
   cursor:pointer;
@@ -64,9 +83,18 @@
 }
 .main-header{
   text-align:center;
+  color:white;
+  position:absolute;
+  top:10%;
+  left:36%;
+  font-size:80px;
+  font-family: 'Kaushan Script', cursive;
+  text-shadow:4px 4px 8px black;
+
   
 }
 .sign-in{
   text-align:center;
-  margin-top:20px;
+  margin-top:10px;
+  border-bottom:1px solid black;
 }

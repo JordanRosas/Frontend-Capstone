@@ -1,12 +1,28 @@
-#resultCard{
+.users{
   display:flex;
-  flex-direction:column;
-  width:10%;
-  line-height:2;
-  padding:20px;
-  flex-wrap:wrap;
-  margin:0 auto;
+  justify-content: space-evenly;
+}
+.card{
   margin-top:20px;
-  border:1px solid slategrey;
-  border-radius:20px;
+  margin-left:8px;
+  width:15%;
+  line-height:2;
+  height:30vh;
+  box-shadow: 1px 2px 1px 1px  lightgray;
+  border-radius:20%;
+}
+.btn{
+  margin-top:100px;
+  width:100%;
+  background-color:#52617c;;
+}
+.card-title{
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  flex-direction: column;
+}
+.border{
+  border-bottom: 1px solid black;
+  width:100%;
 }

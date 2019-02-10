@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import './SearchResults.css'
+import "bootstrap/dist/css/bootstrap.min.css"
 export default class SearchResults extends Component{
 //constructing new friend object in the database userId is the logged in user and the otherUserId is the user the logged in user wants
 //to follow
@@ -21,22 +22,22 @@ constructFriend = evt => {
   render(){
     return(
       <React.Fragment>
-        <div>
+        <section className="users">
           {
             this.props.userLanguages.map(userLanguage => {
-        return  <div id="resultCard" key={userLanguage.userId} >
-                  <p>{userLanguage.user.username}</p>
-                  <p>Rate: {userLanguage.rate} out of 5</p>
-                  <button type="button"  onClick={this.constructFriend}> Follow</button>
-
-                </div>
+        return    <div className="card">
+                    <div className="card-body" id="resultCard" key={userLanguage.userId}>
+                      <h5 className="card-title">{userLanguage.user.username}</h5>
+                      <p className="border"></p>
+                      <p>Rate: {userLanguage.rate} out of 5</p>
+                      <button className="btn btn-success" type="button"  onClick={this.constructFriend}> Follow</button>
+                    </div>
+                  </div>
             })  
             
           }
-          </div>
+          </section>
       </React.Fragment>
     )
   }
 }
-
-

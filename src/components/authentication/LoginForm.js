@@ -1,5 +1,9 @@
 import React, { Component } from 'react'
 import "./LogInForm.css"
+import '../../index.css'
+
+
+
 export default class LoginForm extends Component{
   // setting state of the register form firelds
   state = {
@@ -28,54 +32,57 @@ export default class LoginForm extends Component{
             sessionStorage.setItem("username", user.id)
             let userId = sessionStorage.getItem("username")
             console.log(userId)
-            this.props.history.push("/")
+            this.props.history.push("/home")
           }
         })
       }
   }
   render(){
     return(
-
-      <div>
+      <>
+      <div className="login">
       <h1 className="h3 mb-3 font-weight-normal title main-header">Polyglot Pal</h1>
+      </div>
       <form className="logInForm" onSubmit={this.onLogin}>
       <h3 className="h3 mb-3 font-weight-normal title sign-in">Sign In</h3>
-      <label id="username" htmlFor="inputUsername">
+      <label id="usernameLabel" htmlFor="inputUsername">
           Username:
       </label>
       <input 
+          className="Username"
           name="inputUsername"
           onChange={this.handleFieldChange} type="text"
           id="username"
           placeholder="Username"
           required="" autoFocus="" />
-      <label id="password" htmlFor="inputPassword">
+      <label id="passwordLabel" htmlFor="inputPassword">
           Password:
       </label>
       <input
+          className="Password"
           name="inputPassword" 
           onChange={this.handleFieldChange} type="password"
           id="password"
           placeholder="Password"
           required="" />
-
       <div class="form-row">
-        <div class="form-group col-md-6">
-          <button className="signInButton" type="submit">
-              Login
-          </button>
+          <div class="form-group col-md-6">
+            <button className="signInButton" type="submit">
+                Sign In
+            </button>
           </div>
-  
           <div class="form-group col-md-6">
             <button className="registerButton" type="button"
-                        onClick={()=> this.props.history.push("/login/new")}
-                      >
-                    Sign Up
+              onClick={()=> this.props.history.push("/login/new")}
+              >
+              Register
             </button>
-            </div>
+          </div>
         </div>
     </form>
-  </div>
+    
+    
+    </>
     )
   }
 }

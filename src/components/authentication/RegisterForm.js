@@ -2,8 +2,6 @@ import React, { Component } from 'react'
 import SearchManager from '../../modules/SearchManager'
 import ResetRating from '../Rating/RatingSystem'
 import './RegisterForm.css'
-// import { longStackSupport } from 'q';
-// import LoginManager from '../../modules/LoginManager';
 export default class RegisterForm extends Component{
   //setting state of the username and password fields
   state={
@@ -73,6 +71,7 @@ export default class RegisterForm extends Component{
   render(){
     return(
       <>
+      <div className="register"></div>
       <form className="RegisterForm">
         <div class="form-row">
           <div class="form-group col-md-6">

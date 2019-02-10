@@ -1,12 +1,15 @@
 import React, { Component } from 'react'
 import { withRouter } from 'react-router-dom'
 import "./SearchInput.css"
+import Particles from 'react-particles-js'
+import "bootstrap/dist/css/bootstrap.min.css"
 
 class SearchInput extends Component{
   handleFieldChange = evt => {
     const stateToChange = {}
     stateToChange[evt.target.id] = evt.target.value
     this.setState(stateToChange)
+
     console.log(stateToChange)
   }
   handleSearch = evt => {
@@ -14,23 +17,29 @@ class SearchInput extends Component{
     console.log("Searched")
     this.props.searchAllData(this.state.searchQuery)
     .then(() => this.props.history.push("/home"))  
+    alert("From here you can follow other users and send messages!")
   }
   
   render(){
     return(
       <>
-      <h1 className="homeHeader">Find a language partner</h1>
-      <form className="searchForm" onSubmit={this.handleSearch}>
+      <div className="bootstrap-override">
+        <div className="container">
+          <h1 className="display-4 homeHeader">Find a language partner</h1>
+          <form className="searchForm" onSubmit={this.handleSearch}>
+          <input 
+              type="text" required
+              className="form-control"
+              onChange={this.handleFieldChange}
+              id="searchQuery"
+              placeholder="Search a language..."
 
-        <input 
-            type="text" required
-            className="form-control"
-            onChange={this.handleFieldChange}
-            id="searchQuery"
-            placeholder="Search a language..."
+              />
+          </form>
+        </div>
+      {/* </div> */}
+      </div>
 
-            />
-      </form>
     </>
     )
   }

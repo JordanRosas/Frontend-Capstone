@@ -8,6 +8,24 @@
       "lng": "1232123",
       "photoURL": "",
       "id": 1
+    },
+    {
+      "username": "Leah",
+      "password": "asd",
+      "email": "asd@asd.com",
+      "lat": "123212",
+      "lng": "1232123",
+      "photoURL": "",
+      "id": 2
+    },
+    {
+      "username": "Jordan",
+      "password": "asd",
+      "email": "asd@asd.com",
+      "lat": "123212",
+      "lng": "1232123",
+      "photoURL": "",
+      "id": 3
     }
   ],
   "userLanguages": [
@@ -16,6 +34,18 @@
       "languageId": 1,
       "userId": 1,
       "id": 1
+    },
+    {
+      "rate": 3,
+      "languageId": 1,
+      "userId": 2,
+      "id": 2
+    },
+    {
+      "rate": 5,
+      "languageId": 1,
+      "userId": 3,
+      "id": 3
     }
   ],
   "languages": [
