@@ -1,41 +1,6 @@
 {
   "users": [
-    {
-      "username": "Joey",
-      "password": "asd",
-      "email": "asd@asd.com",
-      "lat": 36.0725,
-      "lng": -86.724,
-      "photoURL": "",
-      "id": 1
-    },
-    {
-      "username": "eClaire",
-      "password": "asd",
-      "email": "asd@asd.com",
-      "lat": 36.1798,
-      "lng": -86.7411,
-      "photoURL": "",
-      "id": 2
-    },
-    {
-      "username": "Jordan",
-      "password": "asd",
-      "email": "jordanrosas1203@gmail.com",
-      "lat": 35.9307,
-      "lng": -86.6829,
-      "photoURL": "",
-      "id": 3
-    },
-    {
-      "username": "Asia",
-      "password": "jordanRulz",
-      "email": "asia@thecontinent.com",
-      "lat": 36.0986,
-      "lng": -86.8219,
-      "photoURL": "",
-      "id": 4
-    }
+
   ],
   "userLanguages": [
     {
