@@ -1,5 +1,7 @@
 import React, { Component } from 'react'
 import FriendManager from '../../modules/FriendManager'
+import './FriendList.css'
+import "bootstrap/dist/css/bootstrap.min.css"
 // import FriendCards from './FriendCards'
 /*Need grab session storage id and see whose using the application
 then do a GET_expand on the user and grab the Id's of the users followees.
@@ -44,19 +46,22 @@ export default class FriendsList extends Component{
           <div>
             {this.state.friends.map(friend => {
               console.log(friend.user.id)
-              return <div key={friend.id}>
-                        <h3>{friend.user.username}</h3>
+              return <div className="card" key={friend.id}>
+                      <div className="card-body">
+                        <h3 className="friendName">{friend.user.username}</h3>
                         <button 
                         type="btn" 
-                        className="deleteButton"
+                        className="deleteButton btn"
                         onClick={() => this.unfollowUsers(friend.id)}>Unfollow</button>
                         <button 
                         type="btn" 
-                        data-toggle="modal" 
-                        data-target="#exampleModal"
-                        className="messageButton"
-                        onClick={() => console.log("working")}>Message</button>
+                        // data-toggle="modal" 
+                        // data-target="#exampleModal"
+                        className="messageButton btn btn-2"
+                        onClick={() => this.props.history.push('/messages')}>Message</button>
                       </div>
+                    </div>
+                  
                     })}
                 </div>
             </div>

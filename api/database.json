@@ -1,51 +1,66 @@
 {
   "users": [
     {
-      "username": "SamanthaRosebud",
-      "password": "weasels",
-      "email": "samantha.weisel@kbwtech.com",
-      "lat": "123212",
-      "lng": "1232123",
+      "username": "Joey",
+      "password": "asd",
+      "email": "asd@asd.com",
+      "lat": 36.0725,
+      "lng": -86.724,
       "photoURL": "",
       "id": 1
     },
     {
-      "username": "Leah",
+      "username": "eClaire",
       "password": "asd",
       "email": "asd@asd.com",
-      "lat": "123212",
-      "lng": "1232123",
+      "lat": 36.1798,
+      "lng": -86.7411,
       "photoURL": "",
       "id": 2
     },
     {
       "username": "Jordan",
       "password": "asd",
-      "email": "asd@asd.com",
-      "lat": "123212",
-      "lng": "1232123",
+      "email": "jordanrosas1203@gmail.com",
+      "lat": 35.9307,
+      "lng": -86.6829,
       "photoURL": "",
       "id": 3
+    },
+    {
+      "username": "Asia",
+      "password": "jordanRulz",
+      "email": "asia@thecontinent.com",
+      "lat": 36.0986,
+      "lng": -86.8219,
+      "photoURL": "",
+      "id": 4
     }
   ],
   "userLanguages": [
     {
-      "rate": 2,
-      "languageId": 1,
+      "rate": 5,
+      "languageId": 2,
       "userId": 1,
-      "id": 1
+      "id": 5
     },
     {
-      "rate": 3,
-      "languageId": 1,
+      "rate": 5,
+      "languageId": 2,
       "userId": 2,
-      "id": 2
+      "id": 6
     },
     {
       "rate": 5,
       "languageId": 1,
       "userId": 3,
-      "id": 3
+      "id": 7
+    },
+    {
+      "rate": 2,
+      "languageId": 3,
+      "userId": 4,
+      "id": 8
     }
   ],
   "languages": [
@@ -66,6 +81,16 @@
     {
       "currentUserId": 3,
       "userId": 1,
+      "id": 1
+    },
+    {
+      "currentUserId": 4,
+      "userId": 1,
+      "id": 2
+    },
+    {
+      "currentUserId": 3,
+      "userId": 2,
       "id": 3
     }
   ],
@@ -76,13 +101,6 @@
       "timestamp": 1549851731680,
       "userId": 1,
       "id": 1
-    },
-    {
-      "message": "Jordan Is Awesome",
-      "timeDisplay": "2/10/2019 at 9:09 PM",
-      "timestamp": 1549854544130,
-      "userId": 3,
-      "id": 2
     }
   ]
 }

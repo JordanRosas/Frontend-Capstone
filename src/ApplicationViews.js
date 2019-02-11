@@ -72,12 +72,6 @@ export default class ApplicationViews extends Component{
 
   followFriend = (friendObj) => {
     FriendManager.postNewFollow(friendObj)
-    // .then(() => FriendManager.getFollowers())
-    // .then(follows => {
-    //   this.setState({
-    //     friends:follows
-    //   })
-    // })
   }
   editMessage = (messageId, editedMessage) => {
     return MessageManager.editMessage(messageId, editedMessage)

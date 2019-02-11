@@ -32,8 +32,8 @@ class SearchInput extends Component{
               onChange={this.handleFieldChange}
               id="searchQuery"
               placeholder="Search a language..."
-
               />
+              
           </form>
         </div>
       {/* </div> */}
