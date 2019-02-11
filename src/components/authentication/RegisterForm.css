@@ -1,0 +1,31 @@
+.RegisterForm{
+  margin:0 auto;
+  width:40%;
+  margin-top:90px;
+  background-color:#90a4ae;
+  padding:40px;
+  opacity:0.95;
+  border-radius:20px;
+  color:black;
+  font-weight:bold;
+  box-shadow:2px 2px 8px black;
+  margin-top:-770px;
+}
+
+#register{
+  margin:0 auto;
+  width:50%;
+  margin-left:135px;
+  border:0;
+  line-height:2;
+  color:#000;
+  font-weight:bold;
+  border-radius:10px;
+  background-color:#00e676;
+  box-shadow:3px 3px 8px gray;
+  transition:.2s;
+}
+#register:hover{
+  transform:scale(1.03);
+  cursor:pointer;
+}

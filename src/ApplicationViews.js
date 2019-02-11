@@ -7,15 +7,17 @@ import LoginForm from './components/authentication/LoginForm'
 import RegisterForm from './components/authentication/RegisterForm'
 import HomePage from './components/home/HomePage'
 import FriendList from './components/friends/FriendList'
-import MessageList from './components/messages/MessageList'
+import Messages from './components/messages/Messages'
 import UserProfile from './components/profile/UserProfile'
 import FriendManager from './modules/FriendManager'
+import MessageManager from './modules/MessageManager'
 export default class ApplicationViews extends Component{
 
   state= {
     users:[],
     languages:[],
-    friends:[]
+    friends:[],
+    messages:[]
   }
   isAuthenticated = () => sessionStorage.getItem("username") !== null
 
@@ -29,39 +31,58 @@ export default class ApplicationViews extends Component{
       this.setState({
         languages:AllLang
       }) 
-      console.log(this.state)
+
     })
     FriendManager.getFollowers().then(AllFollows => {
       this.setState({
         friends:AllFollows
       })
     })
+    MessageManager.getAll()
+      .then(allMessages => {
+        this.setState({ messages: allMessages })
+      })
   }
-
 
   postNewUser = newUser => 
     LoginManager.postNewUsers(newUser)
-    .then(() => LoginManager.getAllUsers())
-    .then(user => 
-      this.setState({
-        users:user
-      })
+
+    postNewMessage = (message) => MessageManager.postNewMessage(message)
+    .then(() => MessageManager.getAll())
+    .then(allMessages => this.setState({
+      messages: allMessages
+    })
     )
+    postNewUserLanguage = (userObj) => {
+      LoginManager.postNewUserLanguage(userObj)
+      .then(() => LoginManager.getAllUsers())
+      .then(allUsers => this.setState({
+        users:allUsers
+      }))
+    }
+
+
   verifyUsers = (username, password) => {
     LoginManager.verifyUsers(username, password)
     .then(allUsers => this.setState({
       users: allUsers
     }))
   }
+
+
   followFriend = (friendObj) => {
     FriendManager.postNewFollow(friendObj)
-    .then(() => FriendManager.getFollowers())
-    .then(follows => {
-      this.setState({
-        friends:follows
-      })
-    })
   }
+  editMessage = (messageId, editedMessage) => {
+    return MessageManager.editMessage(messageId, editedMessage)
+      .then(() => MessageManager.getAll())
+      .then(messages => {
+        this.setState({
+          messages: messages
+        })
+      })
+  }
+
   render(){
     return(
       <>
@@ -74,6 +95,7 @@ export default class ApplicationViews extends Component{
         <Route exact path = "/login/new" render={(props) => {
           return <RegisterForm {...props}
           postNewUser={this.postNewUser}
+          postNewUserLanguage={this.postNewUserLanguage}
           langauges={this.state.languages}
           users={this.state.users}  />
           
@@ -82,7 +104,8 @@ export default class ApplicationViews extends Component{
         />
         <Route exact path="/home" render={props => {
           if(this.isAuthenticated()){
-            return <HomePage  />
+            return <HomePage 
+            searchAllData={this.props.searchAllData} />
           }else{
             return <Redirect to="/login" />
           }
@@ -95,6 +118,7 @@ export default class ApplicationViews extends Component{
                     languages={this.props.languages}
                     searchAllData={this.props.searchAllData}
                     followFriend={this.followFriend}
+                    userLanguages={this.props.userLanguages}
                       />
 
           }else{
@@ -105,14 +129,20 @@ export default class ApplicationViews extends Component{
         
         <Route exact path="/friends" render={props => {
           if(this.isAuthenticated()){
-            return <FriendList />
+            return <FriendList {...props} 
+            users={this.state.users}
+            userLanguages={this.props.languages}
+            getAllFriends={this.getAllFriends}/>
           }else{
             return <Redirect to="/login" />
           }
         }} />
         <Route exact path="/messages" render={props => {
           if(this.isAuthenticated()){
-            return <MessageList />
+            return <Messages {...props}
+            editMessage={this.editMessage}
+            postNewMessage={this.postNewMessage}
+            messages={this.state.messages} />
           }else{
             return <Redirect to="/login" />
           }

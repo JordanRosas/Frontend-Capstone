@@ -1,37 +1,31 @@
 {
   "users": [
+
+  ],
+  "userLanguages": [
     {
-      "username": "Samantha",
-      "password": "asd",
-      "email": "asd@asd.com",
-      "lat": "123212",
-      "lng": "1232123",
-      "photoURL": "",
+      "rate": 5,
+      "languageId": 2,
+      "userId": 1,
+      "id": 5
+    },
+    {
+      "rate": 5,
+      "languageId": 2,
+      "userId": 2,
+      "id": 6
+    },
+    {
+      "rate": 5,
       "languageId": 1,
-      "rate": 5,
-      "id": 1
+      "userId": 3,
+      "id": 7
     },
     {
-      "username": "Jordan",
-      "password": "asd",
-      "email": "asd@asd.com",
-      "lat": "123212",
-      "lng": "1232123",
-      "photoURL": "",
-      "languageId": 2,
-      "rate": 4,
-      "id": 2
-    },
-    {
-      "username": "H-metts",
-      "password": "asd",
-      "email": "asd@asd.com",
-      "lat": "123212",
-      "lng": "1232123",
-      "photoURL": "",
-      "languageId": 2,
-      "rate": 5,
-      "id": 3
+      "rate": 2,
+      "languageId": 3,
+      "userId": 4,
+      "id": 8
     }
   ],
   "languages": [
@@ -50,19 +44,28 @@
   ],
   "friends": [
     {
-      "id": 1,
+      "currentUserId": 3,
       "userId": 1,
-      "otherUserId": 3
+      "id": 1
     },
     {
+      "currentUserId": 4,
       "userId": 1,
-      "otherUserId": 2,
       "id": 2
     },
     {
-      "userId": 1,
-      "otherUserId": 3,
+      "currentUserId": 3,
+      "userId": 2,
       "id": 3
+    }
+  ],
+  "messages": [
+    {
+      "message": "hello",
+      "timeDisplay": "2/10/2019 at 8:22 PM",
+      "timestamp": 1549851731680,
+      "userId": 1,
+      "id": 1
     }
   ]
 }

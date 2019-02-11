@@ -5,22 +5,27 @@ import SearchManager from './modules/SearchManager'
 
 export default class PolyglotContainer extends Component{
   state = {
-    languages:[]
+    userLanguages:[]
   }
+  
   searchAllData = (searchQuery) =>{
     // const SearchResults = {}
     return SearchManager.searchUserLanguages(searchQuery)
     //grabbing the language object being searched
+    //console logging the searched language obj
     .then(response =>  SearchManager.searchUsers(response[0].id))
-    .then(response  => this.setState({languages:response}))
+    // .then(response => console.log(response))
+    .then(response  => this.setState({userLanguages:response}))
+    // .then(console.log(this.state.userLanguages))
   }
+
   render(){
     return(
       <>
         <NavBar searchAllData={this.searchAllData}/>
         <ApplicationViews 
           searchAllData={this.searchAllData} 
-          languages={this.state.languages} />
+          userLanguages={this.state.userLanguages} />
       </>
     )
   }

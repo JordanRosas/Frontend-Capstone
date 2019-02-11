@@ -1,0 +1,21 @@
+.login{
+    background-image: url('../src/assets/polyglotPal.jpg');
+    background-position: center;
+    background-size: cover;
+    height:100vh;
+    margin-top:-48px;
+}
+.register{
+  background-image: url('../src/assets/polyglotPal.jpg');
+  background-position: center;
+  background-size: cover;
+  height:100vh;
+  margin-top:-48px;
+}
+.home{
+  background-image: url('../src/assets/home.jpg');
+  background-position: center;
+  background-size: cover;
+  height:100vh;
+  margin-top:-48px;
+}

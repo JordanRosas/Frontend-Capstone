@@ -1,6 +1,9 @@
 import React, { Component } from 'react'
 import SearchManager from '../../modules/SearchManager'
 import ResetRating from '../Rating/RatingSystem'
+import './RegisterForm.css'
+
+var zipcodes = require('zipcodes')
 export default class RegisterForm extends Component{
   //setting state of the username and password fields
   state={
@@ -11,7 +14,10 @@ export default class RegisterForm extends Component{
     lng:"",
     photoURL:"",
     rate:"",
-    languages:[]
+    languages:[],
+    userId:"",
+    zipcode:""
+    
   }
 
   buildLanguageOptions(){
@@ -44,27 +50,35 @@ export default class RegisterForm extends Component{
 
   createNewUser = evt => {
     evt.preventDefault()
+    let yourZip = zipcodes.lookup(this.state.zipcode)
     const newUser = {
       username: this.state.username,
       password:this.state.password,
       email:this.state.email,
-      lat:this.state.lat,
-      lng:this.state.lng,
-      photoURL:this.state.photoURL,
-      languageId:parseInt(this.state.language),
-      rate:this.state.rate
-    }
+      lat:yourZip.latitude,
+      lng:yourZip.longitude,
+      photoURL:this.state.photoURL
 
+    }
+    const userLanguage = {
+      rate:this.state.rate,
+      languageId:parseInt(this.state.language)
+    }
     this.props.postNewUser(newUser)
-    .then(() => {console.log(newUser)})
+    .then(response => {
+      console.log(response)
+      userLanguage.userId = response.id
+      this.props.postNewUserLanguage(userLanguage)})
     .then(() => this.props.history.push("/login"))
   }
 
   render(){
     return(
       <>
+      <div className="register"></div>
       <form className="RegisterForm">
-        <div className="form-group">
+        <div class="form-row">
+          <div class="form-group col-md-6">
           <label htmlFor="username">Username: </label>
           <input type="text" required
                   className="form-control"
@@ -72,13 +86,14 @@ export default class RegisterForm extends Component{
                   id="username"
                   placeholder="username" />
         </div>
-        <div className="form-group">
+        <div class="form-group col-md-6">
           <label htmlFor="password">Password: </label>
           <input type="password" required
                   className="form-control"
                   onChange={this.handleFieldChange}
                   id="password"
                   placeholder="password" />
+        </div>
         </div>
         <div className="form-group">
           <label htmlFor="email">Email: </label>
@@ -89,21 +104,21 @@ export default class RegisterForm extends Component{
                   placeholder="Email" />
         </div>
         <div className="form-group">
-          <label htmlFor="lat">Lat: </label>
+          <label htmlFor="zip">Zipcode: </label>
           <input type="text" required
                   className="form-control"
                   onChange={this.handleFieldChange}
-                  id="lat"
-                  placeholder="Lat" />
+                  id="zipcode"
+                  placeholder="zipcode" />
         </div>
-        <div className="form-group">
+        {/* <div className="form-group">
           <label htmlFor="lng">Lng: </label>
           <input type="text" required
                   className="form-control"
                   onChange={this.handleFieldChange}
                   id="lng"
                   placeholder="Lng" />
-        </div>
+        </div> */}
         <div className="form-group">
           <label htmlFor="lng">Select a language: </label>
           <select 
@@ -129,7 +144,8 @@ export default class RegisterForm extends Component{
             />
           </div>
         </div>
-        <button 
+        <button
+          id="register"
           type="submit" 
           onClick={this.createNewUser}>Sign Up</button>
       </form>

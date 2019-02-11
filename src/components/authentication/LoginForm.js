@@ -1,4 +1,8 @@
 import React, { Component } from 'react'
+import "./LogInForm.css"
+import '../../index.css'
+
+
 
 export default class LoginForm extends Component{
   // setting state of the register form firelds
@@ -28,42 +32,57 @@ export default class LoginForm extends Component{
             sessionStorage.setItem("username", user.id)
             let userId = sessionStorage.getItem("username")
             console.log(userId)
-            this.props.history.push("/")
+            this.props.history.push("/home")
           }
         })
       }
   }
   render(){
     return(
+      <>
+      <div className="login">
+      <h1 className="h3 mb-3 font-weight-normal title main-header">Polyglot Pal</h1>
+      </div>
       <form className="logInForm" onSubmit={this.onLogin}>
-      <h1 className="h3 mb-3 font-weight-normal title">Please sign in</h1>
-      <label htmlFor="inputUsername">
-          Username
+      <h3 className="h3 mb-3 font-weight-normal title sign-in">Sign In</h3>
+      <label id="usernameLabel" htmlFor="inputUsername">
+          Username:
       </label>
       <input 
+          className="Username"
           name="inputUsername"
           onChange={this.handleFieldChange} type="text"
           id="username"
           placeholder="Username"
           required="" autoFocus="" />
-      <label htmlFor="inputPassword">
-          Password
+      <label id="passwordLabel" htmlFor="inputPassword">
+          Password:
       </label>
       <input
+          className="Password"
           name="inputPassword" 
           onChange={this.handleFieldChange} type="password"
           id="password"
           placeholder="Password"
           required="" />
-      <button className="signInButton" type="submit">
-          Login
-      </button>
-      <button className="registerButton" type="button"
-                  onClick={()=> this.props.history.push("/login/new")}
-                >
+      <div className="form-row">
+          <div className="form-group col-md-6">
+            <button className="signInButton" type="submit">
+                Sign In
+            </button>
+          </div>
+          <div className="form-group col-md-6">
+            <button className="registerButton" type="button"
+              onClick={()=> this.props.history.push("/login/new")}
+              >
               Register
-      </button>
-  </form>
+            </button>
+          </div>
+        </div>
+    </form>
+    
+    
+    </>
     )
   }
 }

@@ -13,9 +13,12 @@ export default{
     .then(e => e.json())
 
   },
-  searchUsers(query) {
-    return fetch(`${localHost}/users?languageId_like=${query}`)
+  searchUsers(id) {
+    return fetch(`${localHost}/userLanguages?languageId=${id}&_expand=user`)
     .then(e => e.json())
+  },
+  getLanguageById(id){
+    return fetch(`${localHost}/languages/${id}`).then(response => response.json())
   }
 
 }

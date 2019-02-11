@@ -1,0 +1,27 @@
+#searchQuery{
+  margin:0 auto;
+  width:52%;
+  justify-content: center;
+  margin-top:-10px;
+
+}
+.homeHeader{
+  text-align:center;
+  margin-bottom:40px;
+  font-family: 'Kaushan Script', cursive;
+  font-weight:bold;
+  color:#f4f4f4;
+
+}
+.bootstrap-override{
+  margin-top:-49px;
+  padding:20px;
+  background-color:#607d8b;
+  box-shadow:0px 2px 20px gray;
+  padding-bottom:-20px;
+  padding-bottom:40px;
+}
+.particles{
+  height:250px;
+  width:100%;
+}

@@ -8,7 +8,21 @@ export default{
     return fetch(`${localHost}/users?username=${username}&password=${password}`)
     .then(p => p.json())
   },
-
+  getUserId(id){
+    return fetch(`${localHost}/users/${id}`).then(e => e.json())
+  },
+  getUserLanguages(){
+    return fetch(`${localHost}/userLanguages`).then(s => s.json())
+  },
+  postNewUserLanguage(userLangObj){
+    return fetch(`${localHost}/userLanguages`, {
+      method:"POST",
+      headers:{
+        "Content-Type": "application/JSON"
+      },
+      body: JSON.stringify(userLangObj)
+    }).then(p => p.json())
+  },
   postNewUsers(userObj){
     return fetch(`${localHost}/users`, {
       method:"POST",
