@@ -50,10 +50,16 @@ export default class FriendsList extends Component{
                         type="btn" 
                         className="deleteButton"
                         onClick={() => this.unfollowUsers(friend.id)}>Unfollow</button>
+                        <button 
+                        type="btn" 
+                        data-toggle="modal" 
+                        data-target="#exampleModal"
+                        className="messageButton"
+                        onClick={() => console.log("working")}>Message</button>
                       </div>
-            })}
-          </div>
-          </div>
+                    })}
+                </div>
+            </div>
       </section>
       </>
     )

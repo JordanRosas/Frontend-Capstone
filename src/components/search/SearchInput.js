@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
 import { withRouter } from 'react-router-dom'
 import "./SearchInput.css"
-import Particles from 'react-particles-js'
 import "bootstrap/dist/css/bootstrap.min.css"
 
 class SearchInput extends Component{

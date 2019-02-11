@@ -65,13 +65,13 @@ export default class LoginForm extends Component{
           id="password"
           placeholder="Password"
           required="" />
-      <div class="form-row">
-          <div class="form-group col-md-6">
+      <div className="form-row">
+          <div className="form-group col-md-6">
             <button className="signInButton" type="submit">
                 Sign In
             </button>
           </div>
-          <div class="form-group col-md-6">
+          <div className="form-group col-md-6">
             <button className="registerButton" type="button"
               onClick={()=> this.props.history.push("/login/new")}
               >

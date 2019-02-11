@@ -1,0 +1,97 @@
+.chatroom {
+  margin: 0 auto;
+  width:35%;
+  margin-top:25px;
+}
+#message{
+  margin:0 auto;
+}
+
+.chat_box {
+  border: 1px solid #666;
+  border-radius:20px;
+  height: 75vh;
+  margin-bottom: 10px;
+  overflow-y: auto;
+  
+}
+
+.current_user .message_box {
+  float: right;
+  margin: 10px;
+  width: 70%;
+}
+
+.other_user .message_box {
+  float: left;
+  margin: 10px;
+  width: 70%;
+}
+
+.message_text {
+  background-color: #f8f8f8;
+  border-radius: 15px;
+  font-size: 14px;
+  padding: 10px;
+}
+
+.current_user .message_text {
+  background-color: #b0bec5;
+  color:white;
+  clear: right;
+  box-shadow:0px 2px 1px gray;
+}
+.other_user .message_text{
+  background-color: #80d8ff;
+  box-shadow:0px 2px 1px gray;
+}
+
+.username {
+  color: #222;
+  font-size: 12px;
+  font-weight: bold;
+  margin: 0px 10px;
+}
+
+.friend { color: blue; }
+.notFriend { color: red; }
+
+.current_user .username, .current_user .bottom_info {
+  float: right;
+}
+
+.other_user .hover_friend {
+  color: red;
+}
+
+.bottom_info {
+  font-size: 10px;
+  margin: 3px 10px;
+}
+
+.edit_link {
+  text-decoration: underline;
+}
+
+.message_input {
+  width: 100%;
+}
+
+.message_btn {
+  padding-left: 10px;
+  margin-top:-100px;
+}
+.banner{
+  margin-top:-49px;
+  padding:20px;
+  background-color:#607d8b;
+  box-shadow:0px 2px 20px gray;
+  padding-bottom:-20px;
+  padding-bottom:30px;
+}
+.banner > h1{
+  text-align:center;
+  color:white;
+  font-family: 'Kaushan Script', cursive;
+  font-weight:bold;
+}

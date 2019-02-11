@@ -62,6 +62,27 @@
       "language": "Russian"
     }
   ],
-  "friends": [],
-  "messages": []
+  "friends": [
+    {
+      "currentUserId": 3,
+      "userId": 1,
+      "id": 3
+    }
+  ],
+  "messages": [
+    {
+      "message": "hello",
+      "timeDisplay": "2/10/2019 at 8:22 PM",
+      "timestamp": 1549851731680,
+      "userId": 1,
+      "id": 1
+    },
+    {
+      "message": "Jordan Is Awesome",
+      "timeDisplay": "2/10/2019 at 9:09 PM",
+      "timestamp": 1549854544130,
+      "userId": 3,
+      "id": 2
+    }
+  ]
 }

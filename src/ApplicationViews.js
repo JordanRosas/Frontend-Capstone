@@ -38,25 +38,21 @@ export default class ApplicationViews extends Component{
         friends:AllFollows
       })
     })
-    MessageManager.getAllMessages().then(allMessages => {
-      this.setState({
-        messages:allMessages
+    MessageManager.getAll()
+      .then(allMessages => {
+        this.setState({ messages: allMessages })
       })
-    })
   }
 
   postNewUser = newUser => 
     LoginManager.postNewUsers(newUser)
 
-    postNewMessage = (messageObj) => {
-      MessageManager.postNewMessage(messageObj)
-      .then(() => MessageManager.getAllMessages())
-      .then(allMessages => {
-        this.setState({
-          messages:allMessages
-        })
-      })
-    }
+    postNewMessage = (message) => MessageManager.postNewMessage(message)
+    .then(() => MessageManager.getAll())
+    .then(allMessages => this.setState({
+      messages: allMessages
+    })
+    )
     postNewUserLanguage = (userObj) => {
       LoginManager.postNewUserLanguage(userObj)
       .then(() => LoginManager.getAllUsers())
@@ -76,12 +72,21 @@ export default class ApplicationViews extends Component{
 
   followFriend = (friendObj) => {
     FriendManager.postNewFollow(friendObj)
-    .then(() => FriendManager.getFollowers())
-    .then(follows => {
-      this.setState({
-        friends:follows
+    // .then(() => FriendManager.getFollowers())
+    // .then(follows => {
+    //   this.setState({
+    //     friends:follows
+    //   })
+    // })
+  }
+  editMessage = (messageId, editedMessage) => {
+    return MessageManager.editMessage(messageId, editedMessage)
+      .then(() => MessageManager.getAll())
+      .then(messages => {
+        this.setState({
+          messages: messages
+        })
       })
-    })
   }
 
   render(){
@@ -141,6 +146,7 @@ export default class ApplicationViews extends Component{
         <Route exact path="/messages" render={props => {
           if(this.isAuthenticated()){
             return <Messages {...props}
+            editMessage={this.editMessage}
             postNewMessage={this.postNewMessage}
             messages={this.state.messages} />
           }else{
