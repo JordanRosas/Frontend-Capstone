@@ -16,7 +16,6 @@ class SearchInput extends Component{
     console.log("Searched")
     this.props.searchAllData(this.state.searchQuery)
     .then(() => this.props.history.push("/home"))  
-    alert("From here you can follow other users and send messages!")
   }
   
   render(){

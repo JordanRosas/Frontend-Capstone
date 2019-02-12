@@ -5,7 +5,9 @@ export default {
     get(id) {
         return fetch(`${localHost}/messages/${id}`).then(data => data.json())
     },
-
+    messageFriends(id){
+      return fetch(`${localHost}/messages/${id}`).then(e => e.json())
+    },
     getAll() {
         return fetch(`${localHost}/messages?_expand=user`).then(data => data.json())
     },

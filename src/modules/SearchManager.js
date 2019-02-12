@@ -13,6 +13,9 @@ export default{
     .then(e => e.json())
 
   },
+  searchUsersById(id){
+    return fetch(`${localHost}/userLanguages?userId=${id}&_expand=user`).then(r => r.json())
+  },
   searchUsers(id) {
     return fetch(`${localHost}/userLanguages?languageId=${id}&_expand=user`)
     .then(e => e.json())

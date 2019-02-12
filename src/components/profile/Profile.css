@@ -1,0 +1,26 @@
+.banner{
+  text-align:center;
+  background-color:#607d8b;
+  padding:70px;
+  margin-top:-50px;
+  font-family: 'Kaushan Script', cursive;
+  color:white;
+  font-weight:bold;
+  box-shadow:0px 2px 20px gray;
+}
+.profilePic{
+  height:300px;
+  width:300px;
+  margin-left:10px;
+  margin-top:10px;
+}
+.languageCards{
+  margin:0 auto;
+  width:75%;
+  height:100vh;
+  position:absolute;
+  top:11.5%;
+  left:23%;
+  
+
+}

@@ -11,6 +11,8 @@ import Messages from './components/messages/Messages'
 import UserProfile from './components/profile/UserProfile'
 import FriendManager from './modules/FriendManager'
 import MessageManager from './modules/MessageManager'
+import NewUserLanguage from './components/profile/NewUserLanguage'
+import ProfileManager from './modules/ProfileManager'
 export default class ApplicationViews extends Component{
 
   state= {
@@ -44,6 +46,7 @@ export default class ApplicationViews extends Component{
       })
   }
 
+
   postNewUser = newUser => 
     LoginManager.postNewUsers(newUser)
 
@@ -59,6 +62,11 @@ export default class ApplicationViews extends Component{
       .then(allUsers => this.setState({
         users:allUsers
       }))
+    }
+
+    postNewUserLanguageCardToProfile = (id, langObject)=> {
+      ProfileManager.postNewUserLangCard(langObject)
+      .then(() => ProfileManager.getAll(id))
     }
 
 
@@ -115,7 +123,7 @@ export default class ApplicationViews extends Component{
           if(this.isAuthenticated()){
             return <SearchResults {...props}
                     users={this.state.users}
-                    languages={this.props.languages}
+                    languages={this.state.languages}
                     searchAllData={this.props.searchAllData}
                     followFriend={this.followFriend}
                     userLanguages={this.props.userLanguages}
@@ -142,14 +150,30 @@ export default class ApplicationViews extends Component{
             return <Messages {...props}
             editMessage={this.editMessage}
             postNewMessage={this.postNewMessage}
-            messages={this.state.messages} />
+            messages={this.state.messages}
+            friends={this.state.friends}/>
           }else{
             return <Redirect to="/login" />
           }
         }} />
         <Route exact path="/profile" render={props => {
           if(this.isAuthenticated()){
-            return <UserProfile />
+            return <UserProfile {...props}
+            userLanguages={this.props.userLanguages}
+            users={this.state.users}
+            />
+          }else{
+            return <Redirect to="/login" />
+          }
+        }} />
+        <Route path="/profile/new" render={props => {
+          if(this.isAuthenticated()){
+            return <NewUserLanguage {...props}
+            userLanguages={this.props.userLanguages}
+            users={this.state.users}
+            getUserLanguages={this.getUserLanguages}
+            postNewUserLanguageCardToProfile={this.postNewUserLanguageCardToProfile}
+            />
           }else{
             return <Redirect to="/login" />
           }

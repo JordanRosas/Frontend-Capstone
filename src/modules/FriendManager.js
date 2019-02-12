@@ -23,5 +23,8 @@ export default{
     return fetch(`${localHost}/friends/${id}`,{
       method:"DELETE"
     }).then(e => e.json())
+  },
+  getFriendsExpand(){
+    return fetch(`${localHost}/friends?_expand=user`).then(res => res.json())
   }
 }

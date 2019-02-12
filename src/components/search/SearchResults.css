@@ -8,14 +8,33 @@
   margin-left:8px;
   width:15%;
   line-height:2;
-  height:30vh;
+  height:vh;
   box-shadow: 1px 2px 1px 1px  lightgray;
-  border-radius:20%;
 }
-.btn{
-  margin-top:100px;
-  width:100%;
-  background-color:#52617c;
+.button {
+  background-color: #4CAF50;
+  background-image:url("../../assets/plus-16.png");
+  background-position:center;
+  background-repeat: no-repeat;
+  border: none;
+  color: white;
+  padding: 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  position:absolute;
+  height:40px;
+  width:40px;
+  border-radius:50%;
+  top:1%;
+  left:78%;
+  transition:.5s;
+}
+.button:hover{
+cursor:pointer;
+transform:scale(1.1)rotate(90deg);
 }
 .card-title{
   display: flex;
@@ -26,4 +45,16 @@
 .border{
   border-bottom: 1px solid black;
   width:100%;
+}
+.language{
+  margin-bottom:-50px;
+}
+.userPid{
+  height:70px;
+  width:70px;
+  border-radius:50%;
+  margin:0 auto;
+  width:50%;
+  margin-left:25%;
+  border:1px solid black;
 }

@@ -1,31 +1,57 @@
 {
   "users": [
-
+    {
+      "username": "Jordan",
+      "password": "asd",
+      "email": "jordanrosas1203@gmail.com",
+      "lat": 35.025,
+      "lng": -85.1459,
+      "photoURL": "google.com",
+      "id": 1
+    },
+    {
+      "username": "Jisie",
+      "password": "asd",
+      "email": "asd@asd.com",
+      "lat": 35.9121,
+      "lng": -86.7655,
+      "photoURL": "google.com",
+      "id": 2
+    },
+    {
+      "username": "Austin",
+      "password": "asd",
+      "email": "asd@asd.com",
+      "lat": 35.2093,
+      "lng": -87.0393,
+      "photoURL": "https://cdn.psychologytoday.com/sites/default/files/styles/article-inline-half/public/field_blog_entry_images/2018-02/vicious_dog_0.png?itok=nsghKOHs",
+      "id": 3
+    }
   ],
   "userLanguages": [
     {
       "rate": 5,
-      "languageId": 2,
-      "userId": 1,
-      "id": 5
-    },
-    {
-      "rate": 5,
-      "languageId": 2,
-      "userId": 2,
-      "id": 6
-    },
-    {
-      "rate": 5,
-      "languageId": 1,
-      "userId": 3,
-      "id": 7
-    },
-    {
-      "rate": 2,
       "languageId": 3,
-      "userId": 4,
-      "id": 8
+      "notes": "",
+      "flagPhotoURL": "",
+      "userId": 1,
+      "id": 1
+    },
+    {
+      "rate": 4,
+      "languageId": 1,
+      "notes": "",
+      "flagPhotoURL": "",
+      "userId": 2,
+      "id": 2
+    },
+    {
+      "rate": 5,
+      "languageId": 3,
+      "notes": "",
+      "flagPhotoURL": "",
+      "userId": 3,
+      "id": 3
     }
   ],
   "languages": [
@@ -45,26 +71,16 @@
   "friends": [
     {
       "currentUserId": 3,
-      "userId": 1,
+      "userId": 3,
       "id": 1
-    },
-    {
-      "currentUserId": 4,
-      "userId": 1,
-      "id": 2
-    },
-    {
-      "currentUserId": 3,
-      "userId": 2,
-      "id": 3
     }
   ],
   "messages": [
     {
-      "message": "hello",
-      "timeDisplay": "2/10/2019 at 8:22 PM",
-      "timestamp": 1549851731680,
-      "userId": 1,
+      "message": "Hey guys!",
+      "timeDisplay": "3:20 PM 2/12/2019",
+      "timestamp": 1550006441434,
+      "userId": 3,
       "id": 1
     }
   ]

@@ -14,8 +14,10 @@ export default class RegisterForm extends Component{
     lng:"",
     photoURL:"",
     rate:"",
-    languages:[],
     userId:"",
+    notes:"",
+    flagPhotoURL:"",
+    languages:[],
     zipcode:""
     
   }
@@ -62,7 +64,9 @@ export default class RegisterForm extends Component{
     }
     const userLanguage = {
       rate:this.state.rate,
-      languageId:parseInt(this.state.language)
+      languageId:parseInt(this.state.language),
+      notes:this.state.notes,
+      flagPhotoURL:this.state.flagPhotoURL
     }
     this.props.postNewUser(newUser)
     .then(response => {
@@ -111,14 +115,6 @@ export default class RegisterForm extends Component{
                   id="zipcode"
                   placeholder="zipcode" />
         </div>
-        {/* <div className="form-group">
-          <label htmlFor="lng">Lng: </label>
-          <input type="text" required
-                  className="form-control"
-                  onChange={this.handleFieldChange}
-                  id="lng"
-                  placeholder="Lng" />
-        </div> */}
         <div className="form-group">
           <label htmlFor="lng">Select a language: </label>
           <select 
@@ -135,12 +131,19 @@ export default class RegisterForm extends Component{
                   
           </select>
           <div className="form-group">
+          <label htmlFor="photoURL">Photo URL: </label>
+          <input type="text" required
+                  className="form-control"
+                  onChange={this.handleFieldChange}
+                  id="photoURL"
+                  placeholder="photoURL" />
+          </div>
+          <div className="form-group">
           
           <label htmlFor="rate">Proficiency:</label>
           <ResetRating 
             id="rating"
             onChange={this.handleRatingChange}
-            // onChange={this.handleRatingChange}
             />
           </div>
         </div>
