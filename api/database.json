@@ -73,6 +73,11 @@
       "currentUserId": 3,
       "userId": 3,
       "id": 1
+    },
+    {
+      "currentUserId": 1,
+      "userId": 3,
+      "id": 2
     }
   ],
   "messages": [
@@ -82,6 +87,13 @@
       "timestamp": 1550006441434,
       "userId": 3,
       "id": 1
+    },
+    {
+      "message": "Hi whats up",
+      "timeDisplay": "10:51 PM 2/12/2019",
+      "timestamp": 1550033488196,
+      "userId": 1,
+      "id": 2
     }
   ]
 }

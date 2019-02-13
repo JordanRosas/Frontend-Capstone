@@ -1,17 +1,34 @@
 import React, { Component } from 'react'
+import SearchManager from '../../modules/SearchManager'
 
 export default class NewUserLanguage extends Component{
   state={
     languageId:"",
     notes:"",
     flagPhotoURL:"",
-    userId:Number(sessionStorage.getItem("username"))
+    userId:Number(sessionStorage.getItem("username")),
+    languages:[]
   }
   handleFieldChange= evt =>{
     evt.preventDefault()
     const stateToChange = {}
-    stateToChange[evt.taget.id] = evt.target.value
+    stateToChange[evt.target.id] = evt.target.value
     this.setState({stateToChange})
+  }
+  buildLanguageOptions(){
+    let languages = []
+    SearchManager.getAllLanguages()
+    .then(allLanguages => {
+      allLanguages.forEach(language => {
+        if(!languages.includes({id: language.id, language: language.language})){
+          languages.push({id: language.id, language: language.language})
+        }
+      })
+      this.setState({languages:languages})
+    })
+  }
+  componentDidMount(){
+    this.buildLanguageOptions()
   }
   createNewUserLanguageObject = evt => {
     evt.preventDefault()
@@ -27,19 +44,28 @@ export default class NewUserLanguage extends Component{
 
   render(){
     return(
-      <form className="RegisterForm">
+      <form className="editProfile">
         <div className="form-row">
           <div className="form-group col-md-6">
-          <label htmlFor="username">Language: </label>
-          <input type="text" required
+          <label htmlFor="lng">Select a language: </label>
+          <select 
                   className="form-control"
                   onChange={this.handleFieldChange}
-                  id="username"
-                  placeholder="username" />
+                  id="language"
+                  placeholder="Select a language">
+                  <option key={0} defaultValue="">English</option>
+                  {
+                    this.state.languages.map(language => (
+                      <option key={language.id} value={language.id}>{language.language}</option>
+                    ))
+                    
+                  }
+                  
+          </select>
         </div>
         <div className="form-group col-md-6">
           <label htmlFor="password">Notes: </label>
-          <input type="password" required
+          <input type="text" required
                   className="form-control"
                   onChange={this.handleFieldChange}
                   id="password"
@@ -48,13 +74,13 @@ export default class NewUserLanguage extends Component{
         </div>
         <div className="form-group">
           <label htmlFor="email">Flag Photo: </label>
-          <input type="email" required
+          <input type="text" required
                   className="form-control"
                   onChange={this.handleFieldChange}
                   id="email"
                   placeholder="Email" />
         </div>
-      <button type="button" onClick={this.createNewUserLanguageObject}>Click</button>
+      <button type="button" onClick={this.createNewUserLanguageObject}>Post</button>
       </form>
     )
   }

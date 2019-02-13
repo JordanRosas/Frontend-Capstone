@@ -172,6 +172,7 @@ export default class ApplicationViews extends Component{
             userLanguages={this.props.userLanguages}
             users={this.state.users}
             getUserLanguages={this.getUserLanguages}
+            languages={this.state.languages}
             postNewUserLanguageCardToProfile={this.postNewUserLanguageCardToProfile}
             />
           }else{
