@@ -75,7 +75,7 @@ export default class RegisterForm extends Component{
       console.log(response)
       userLanguage.userId = response.id
       this.props.postNewUserLanguage(userLanguage)})
-    .then(() => this.props.history.push("/login"))
+    .then(() => this.props.history.push("/"))
   }
 
   render(){

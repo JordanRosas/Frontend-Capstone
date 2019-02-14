@@ -22,7 +22,9 @@
 1. Type `npm start`
 1. In another terminal window - navigate into the "api" folder by typing `cd /api`
 1. Run `json-server -p 5002 -w database.json`
-1. After steps listed above are complete you should be ready to use the app!
+1. After steps listed above are complete you should be ready to use the app
+1. Navigate to localhost:3000
+1. Enjoy.
 Thank you!
 
 ## Technologies Used To Build This Application
