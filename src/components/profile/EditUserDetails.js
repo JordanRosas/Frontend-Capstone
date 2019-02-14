@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import ProfileManager from '../../modules/ProfileManager';
 // import SearchManager from '../../modules/SearchManager'
 // import ResetRating from '../Rating/RatingSystem'
 var zipcodes = require('zipcodes')
@@ -11,6 +12,20 @@ export default class EditUserDetails extends Component{
     lng:"",
     photoURL:"",
     zipcode:""
+  }
+  componentDidMount(){
+    let currentUser = sessionStorage.getItem("username")
+    let userId = Number(currentUser)
+    ProfileManager.getUserById(userId)
+    .then(userInfo => {
+      this.setState({
+        username:userInfo.username,
+        password:userInfo.password,
+        email:userInfo.email,
+        photoURL:userInfo.photoURL,
+        zipcode:userInfo.zipcode
+      })
+    })
   }
   handleFieldChange= evt =>{
     evt.preventDefault()
@@ -46,7 +61,9 @@ export default class EditUserDetails extends Component{
                   className="form-control"
                   onChange={this.handleFieldChange}
                   id="username"
-                  placeholder="username" />
+                  value={this.state.username}
+                  // placeholder="username" 
+                  />
           </div>
           <div className="form-group col-md-6">
             <label htmlFor="password">Password: </label>
@@ -54,32 +71,40 @@ export default class EditUserDetails extends Component{
                     className="form-control"
                     onChange={this.handleFieldChange}
                     id="password"
-                    placeholder="password" />
+                    value={this.state.password}
+                    // placeholder="password"
+                  />
           </div>
       </div>
-          <div classNameName="form-group">
+          <div className="form-group">
             <label htmlFor="email">Email: </label>
             <input type="email" required
                     className="form-control"
                     onChange={this.handleFieldChange}
                     id="email"
-                    placeholder="Email" />
+                    value={this.state.email}
+                    // placeholder="Email" 
+                    />
           </div>
-          <div classNameName="form-group">
+          <div className="form-group">
             <label htmlFor="zip">Zipcode: </label>
             <input type="text" required
                     className="form-control"
                     onChange={this.handleFieldChange}
                     id="zipcode"
-                    placeholder="zipcode" />
+                    value={this.state.zipcode}
+                    // placeholder="zipcode" 
+                    />
           </div>
-          <div classNameName="form-group">
+          <div className="form-group">
           <label htmlFor="photoURL">Photo URL: </label>
           <input type="text" required
                   className="form-control"
                   onChange={this.handleFieldChange}
                   id="photoURL"
-                  placeholder="photoURL" />
+                  value={this.state.photoURL}
+                  // placeholder="photoURL" 
+                  />
           </div>
           <button type="button" onClick={this.updateExistingUser}>Update</button>
         </form>

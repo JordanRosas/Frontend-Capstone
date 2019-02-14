@@ -89,7 +89,7 @@ export default class Messages extends Component {
                             id="message" />
                     </div>
                     <div className="message_btn">
-                        <button type="submit" onClick={this.findFriends} className="btn btn-primary">Submit</button>
+                        <button type="submit" onClick={this.findFriends} className="btn btn-primary buttons">Submit</button>
                     </div>
                 </form>
             </section>

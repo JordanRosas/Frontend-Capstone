@@ -49,8 +49,8 @@ render(){
                       <figure>
                         <img className="profilePic" src={user.photoURL} alt="dog pic" />
                         <figcaption className="userTag">
-                          <h5>Area: {user.zipcode}</h5>
-                          <h5>{user.username}</h5>
+                          <h5 className="profileName">Name: {user.username}</h5>
+                          <h5 className="profileArea">Area: {user.zipcode}</h5>
                           <Link className="nav-link" to={`/profile/${user.id}/edit/profileImage/location`}>Edit</Link>
                         </figcaption>
                       </figure>
