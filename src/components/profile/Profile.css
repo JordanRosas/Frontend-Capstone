@@ -13,14 +13,78 @@
   width:300px;
   margin-left:10px;
   margin-top:10px;
+  border-radius:2%;
 }
 .languageCards{
   margin:0 auto;
   width:75%;
-  height:100vh;
+  height:10vh;
   position:absolute;
   top:11.5%;
   left:23%;
-  
+}
+#button{
+  margin-top:100px;
+}
+.cardDeck{
+  display:flex;
+  flex-direction:row;
+  margin-top:-350px;
+  margin-left:355px;
+  justify-content: space-evenly;
+  /* width:60%; */
+  z-index:1000;
+}
+.card-front{
+  width:225px;
+  height:300px;
+}
 
+.flip-card {
+  background-color: transparent;
+  width: 225px;
+  height: 300px;
+  border: 1px solid #f1f1f1;
+  perspective: 1000px; /* Remove this if you don't want the 3D effect */
+}
+
+/* This container is needed to position the front and back side */
+.flip-card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  transition: transform 0.8s;
+  transform-style: preserve-3d;
+}
+
+/* Do an horizontal flip when you move the mouse over the flip box container */
+.flip-card:hover .flip-card-inner {
+  transform: rotateY(-180deg) scale(1.1);
+  cursor:pointer;
+  z-index:100;
+  
+}
+
+/* Position the front and back side */
+.flip-card-front, .flip-card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+}
+
+/* Style the front side (fallback if image is missing) */
+.flip-card-front {
+  background-color: #bbb;
+  color: black;
+  box-shadow:2px 2px 8px black;
+}
+
+/* Style the back side */
+.flip-card-back {
+  background-color: #607d8b;
+  color: white;
+  transform: rotateY(180deg);
+  box-shadow:2px 2px 8px black;
 }

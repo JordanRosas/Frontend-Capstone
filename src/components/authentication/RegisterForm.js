@@ -59,7 +59,8 @@ export default class RegisterForm extends Component{
       email:this.state.email,
       lat:yourZip.latitude,
       lng:yourZip.longitude,
-      photoURL:this.state.photoURL
+      photoURL:this.state.photoURL,
+      zipcode:parseInt(this.state.zipcode)
 
     }
     const userLanguage = {
@@ -81,8 +82,8 @@ export default class RegisterForm extends Component{
       <>
       <div className="register"></div>
       <form className="RegisterForm">
-        <div class="form-row">
-          <div class="form-group col-md-6">
+        <div className="form-row">
+          <div className="form-group col-md-6">
           <label htmlFor="username">Username: </label>
           <input type="text" required
                   className="form-control"
@@ -90,7 +91,7 @@ export default class RegisterForm extends Component{
                   id="username"
                   placeholder="username" />
         </div>
-        <div class="form-group col-md-6">
+        <div className="form-group col-md-6">
           <label htmlFor="password">Password: </label>
           <input type="password" required
                   className="form-control"

@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import SearchManager from '../../modules/SearchManager'
 import ResetRating from '../Rating/RatingSystem'
-export default class NewUserLanguage extends Component{
+export default class EditLanguageCard extends Component{
   state={
     languageId:"",
     notes:"",
@@ -20,6 +20,7 @@ export default class NewUserLanguage extends Component{
     this.setState({rate:rating})
     
   }
+
   buildLanguageOptions(){
     let languages = []
     SearchManager.getAllLanguages()
@@ -35,18 +36,20 @@ export default class NewUserLanguage extends Component{
   componentDidMount(){
     this.buildLanguageOptions()
   }
-  createNewUserLanguageObject = evt => {
+  updateExistingCard = evt => {
     evt.preventDefault()
-    const newUserLangObj = {
+
+    const existingCard = {
       languageId: parseInt(this.state.languageId),
       notes:this.state.notes,
       flagPhotoURL:this.state.flagPhotoURL,
       rate:this.state.rate,
       userId:this.state.userId
     }
-    this.props.postNewUserLanguageCardToProfile(newUserLangObj)
-    .then(() => this.props.history.push('/profile'))
+    this.props.editCard(Number(this.props.match.params.id), existingCard)
+    .then(() => this.props.history.push("/profile"))
   }
+
 
   render(){
     return(
@@ -76,7 +79,7 @@ export default class NewUserLanguage extends Component{
                   className="form-control"
                   onChange={this.handleFieldChange}
                   id="flagPhotoURL"
-                  value={this.flagPhotoURL}
+                  // value={this.props.input.flagPhotoURL}
                   placeholder="Email" />
         </div>
         </div>
@@ -87,19 +90,19 @@ export default class NewUserLanguage extends Component{
                   className="form-control"
                   onChange={this.handleFieldChange}
                   id="notes"
-                  value={this.state.notes}
+                  value={this.props.notes}
                   placeholder="Notes..." />
         </div>
         <div className="form-group">
           
           <label htmlFor="rate">Proficiency:</label>
           <ResetRating 
-            value={this.state.rate}
+            // value={this.props.input.rate}
             id="rating"
             onChange={this.handleRatingChange}
             />
           </div>
-      <button type="button" onClick={this.createNewUserLanguageObject}>Post</button>
+      <button type="button" onClick={this.updateExistingCard}>Update</button>
       </form>
     )
   }

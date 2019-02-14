@@ -17,7 +17,7 @@
   
 }
 .btn{
-  margin-top:100px;
+  margin-top:12px;
   width:100%;
   background-color:#00e676;
 }
@@ -45,4 +45,13 @@
   color:white;
   font-weight:bold;
   box-shadow:0px 2px 20px gray;
+}
+.friendPic{
+  height:85px;
+  width:70px;
+  border-radius:50%;
+  margin:0 auto;
+  width:50%;
+  margin-left:25%;
+  border:1px solid black;
 }

@@ -51,6 +51,7 @@ export default class FriendsList extends Component{
               return <div className="card" id="card" key={friend.id}>
                       <div className="card-body">
                         <h3 className="card-title">{friend.user.username}</h3>
+                        <img className="friendPic" src={friend.user.photoURL} alt="user profile picture" />
                         <button 
                         type="btn" 
                         className="deleteButton btn"

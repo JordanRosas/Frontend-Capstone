@@ -13,13 +13,16 @@ import FriendManager from './modules/FriendManager'
 import MessageManager from './modules/MessageManager'
 import NewUserLanguage from './components/profile/NewUserLanguage'
 import ProfileManager from './modules/ProfileManager'
+import EditLanguageCard from './components/profile/EditLanguageCard'
+import EditUserDetails from './components/profile/EditUserDetails'
 export default class ApplicationViews extends Component{
 
   state= {
     users:[],
     languages:[],
     friends:[],
-    messages:[]
+    messages:[],
+    userLanguages:[]
   }
   isAuthenticated = () => sessionStorage.getItem("username") !== null
 
@@ -44,6 +47,11 @@ export default class ApplicationViews extends Component{
       .then(allMessages => {
         this.setState({ messages: allMessages })
       })
+      ProfileManager.get().then(all => {
+        this.setState({
+          userLanguages:all
+        })
+      })
   }
 
 
@@ -64,9 +72,8 @@ export default class ApplicationViews extends Component{
       }))
     }
 
-    postNewUserLanguageCardToProfile = (id, langObject)=> {
-      ProfileManager.postNewUserLangCard(langObject)
-      .then(() => ProfileManager.getAll(id))
+    postNewUserLanguageCardToProfile = (langObject) => {
+      return LoginManager.postNewUserLanguage(langObject)
     }
 
 
@@ -76,7 +83,9 @@ export default class ApplicationViews extends Component{
       users: allUsers
     }))
   }
-
+  deleteCardFromProfile = (id) => {
+    return ProfileManager.deleteLanguageCard(id)
+  }
 
   followFriend = (friendObj) => {
     FriendManager.postNewFollow(friendObj)
@@ -89,12 +98,27 @@ export default class ApplicationViews extends Component{
           messages: messages
         })
       })
+
+  }
+  editCard = (userId, existingObj) => {
+    return ProfileManager.editLanguage(userId, existingObj)
+    .then(ProfileManager.get())
+    .then(userLanguages => {
+      this.setState({userLanguages:userLanguages})
+    })
+  }
+  editUserInfo = (userId, userObj) => {
+    return ProfileManager.editUserInfo(userId, userObj)
+    .then(ProfileManager.getUsers())
+    .then(user => {
+      this.setState({users:user})
+    })
   }
 
   render(){
     return(
       <>
-        <Route  exact path = "/login" render={(props) => {
+        <Route  exact path = "/" render={(props) => {
           return <LoginForm {...props} 
           verifyUsers={this.verifyUsers}
           users={this.state.users} />
@@ -115,7 +139,7 @@ export default class ApplicationViews extends Component{
             return <HomePage 
             searchAllData={this.props.searchAllData} />
           }else{
-            return <Redirect to="/login" />
+            return <Redirect to="/" />
           }
           
         }} />
@@ -130,7 +154,7 @@ export default class ApplicationViews extends Component{
                       />
 
           }else{
-            return <Redirect to="/login" />
+            return <Redirect to="/" />
           }
           
         }} />
@@ -142,7 +166,7 @@ export default class ApplicationViews extends Component{
             userLanguages={this.props.languages}
             getAllFriends={this.getAllFriends}/>
           }else{
-            return <Redirect to="/login" />
+            return <Redirect to="/" />
           }
         }} />
         <Route exact path="/messages" render={props => {
@@ -153,7 +177,7 @@ export default class ApplicationViews extends Component{
             messages={this.state.messages}
             friends={this.state.friends}/>
           }else{
-            return <Redirect to="/login" />
+            return <Redirect to="/" />
           }
         }} />
         <Route exact path="/profile" render={props => {
@@ -161,12 +185,13 @@ export default class ApplicationViews extends Component{
             return <UserProfile {...props}
             userLanguages={this.props.userLanguages}
             users={this.state.users}
+            delete={this.deleteCardFromProfile}
             />
           }else{
-            return <Redirect to="/login" />
+            return <Redirect to="/" />
           }
         }} />
-        <Route path="/profile/new" render={props => {
+        <Route exact path="/profile/new" render={props => {
           if(this.isAuthenticated()){
             return <NewUserLanguage {...props}
             userLanguages={this.props.userLanguages}
@@ -176,7 +201,36 @@ export default class ApplicationViews extends Component{
             postNewUserLanguageCardToProfile={this.postNewUserLanguageCardToProfile}
             />
           }else{
-            return <Redirect to="/login" />
+            return <Redirect to="/" />
+          }
+        }} />
+        <Route exact path="/profile/:id(\d+)/edit" render={props => {
+          if(this.isAuthenticated()){
+            return <EditLanguageCard {...props}
+            userLanguages={this.props.userLanguages}
+            users={this.state.users}
+            getUserLanguages={this.getUserLanguages}
+            languages={this.state.languages}
+            editCard={this.editCard}
+            postNewUserLanguageCardToProfile={this.postNewUserLanguageCardToProfile}
+            />
+          }else{
+            return <Redirect to="/" />
+          }
+        }} />
+        <Route exact path="/profile/:id(\d+)/edit/profileImage/location" render={props => {
+          if(this.isAuthenticated()){
+            return <EditUserDetails {...props}
+            editUserInfo={this.editUserInfo}
+            userLanguages={this.props.userLanguages}
+            users={this.state.users}
+            getUserLanguages={this.getUserLanguages}
+            languages={this.state.languages}
+            editCard={this.editCard}
+            postNewUserLanguageCardToProfile={this.postNewUserLanguageCardToProfile}
+            />
+          }else{
+            return <Redirect to="/" />
           }
         }} />
     </>
