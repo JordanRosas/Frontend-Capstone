@@ -67,14 +67,6 @@
       "id": 4
     },
     {
-      "languageId": 2,
-      "notes": "Learning french",
-      "flagPhotoURL": "https://upload.wikimedia.org/wikipedia/en/thumb/c/c3/Flag_of_France.svg/1200px-Flag_of_France.svg.png",
-      "rate": 5,
-      "userId": 3,
-      "id": 5
-    },
-    {
       "languageId": 1,
       "notes": "I speak it perfectamente",
       "flagPhotoURL": "https://upload.wikimedia.org/wikipedia/en/thumb/9/9a/Flag_of_Spain.svg/1280px-Flag_of_Spain.svg.png",
@@ -136,16 +128,6 @@
       "id": 1
     },
     {
-      "currentUserId": 3,
-      "userId": 3,
-      "id": 2
-    },
-    {
-      "currentUserId": 1,
-      "userId": 3,
-      "id": 4
-    },
-    {
       "currentUserId": 4,
       "userId": 1,
       "id": 5
@@ -159,6 +141,11 @@
       "currentUserId": 5,
       "userId": 1,
       "id": 7
+    },
+    {
+      "currentUserId": 1,
+      "userId": 4,
+      "id": 8
     }
   ],
   "messages": [
@@ -192,8 +179,8 @@
     },
     {
       "message": "hi",
-      "timestamp": 1550158582253,
       "timeDisplay": "9:36 AM 2/14/2019",
+      "timestamp": 1550158582253,
       "userId": 1,
       "id": 5
     },
