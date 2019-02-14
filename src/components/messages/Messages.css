@@ -10,7 +10,9 @@
 .chat_box {
   border: 1px solid #666;
   border-radius:20px;
-  height: 75vh;
+  height: 65vh;
+  width:150%;
+  margin-left:-27%;
   margin-bottom: 10px;
   overflow-y: auto;
   
@@ -86,8 +88,7 @@
   padding:20px;
   background-color:#607d8b;
   box-shadow:0px 2px 20px gray;
-  padding-bottom:-20px;
-  padding-bottom:30px;
+  padding:70px;
 }
 .banner > h1{
   text-align:center;

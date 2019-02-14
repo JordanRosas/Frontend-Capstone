@@ -1,39 +1,57 @@
-.followHeader{
-  text-align:center;
-}
 .friends{
   display:flex;
   justify-content: space-evenly;
-  /* margin-top:-650px; */
-}
-.card{
+  flex-direction:row;
+  margin-top:40px;
+
+} 
+
+#card{
   margin-top:20px;
   margin-left:8px;
-  width:100%;
+  width:15%;
   line-height:2;
   height:30vh;
   box-shadow: 1px 2px 1px 1px  lightgray;
-  border-radius:20%;
+  border-radius:10%;
+  
 }
 .btn{
-  margin-top:100px;
+  margin-top:12px;
   width:100%;
-  background-color:#52617c;
+  background-color:#00e676;
 }
 .btn-2{
-  margin-top:2px;
+  margin-top:10px;
+  background-color:#4fc3f7;
 }
-/* .card-title{
+.card-title{
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
   align-items: center;
   flex-direction: column;
-} */
+  color:black;
+}
 .border{
   border-bottom: 1px solid black;
   width:100%;
 }
-h3.friendName{
-  display:flex;
-  justify-content:center;
+.followHeader{
+  text-align:center;
+  background-color:#607d8b;
+  padding:70px;
+  margin-top:-50px;
+  font-family: 'Kaushan Script', cursive;
+  color:white;
+  font-weight:bold;
+  box-shadow:0px 2px 20px gray;
+}
+.friendPic{
+  height:85px;
+  width:70px;
+  border-radius:50%;
+  margin:0 auto;
+  width:50%;
+  margin-left:25%;
+  border:1px solid black;
 }

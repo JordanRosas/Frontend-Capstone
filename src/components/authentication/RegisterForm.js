@@ -14,8 +14,10 @@ export default class RegisterForm extends Component{
     lng:"",
     photoURL:"",
     rate:"",
-    languages:[],
     userId:"",
+    notes:"",
+    flagPhotoURL:"",
+    languages:[],
     zipcode:""
     
   }
@@ -57,12 +59,15 @@ export default class RegisterForm extends Component{
       email:this.state.email,
       lat:yourZip.latitude,
       lng:yourZip.longitude,
-      photoURL:this.state.photoURL
+      photoURL:this.state.photoURL,
+      zipcode:parseInt(this.state.zipcode)
 
     }
     const userLanguage = {
       rate:this.state.rate,
-      languageId:parseInt(this.state.language)
+      languageId:parseInt(this.state.language),
+      notes:this.state.notes,
+      flagPhotoURL:this.state.flagPhotoURL
     }
     this.props.postNewUser(newUser)
     .then(response => {
@@ -77,8 +82,8 @@ export default class RegisterForm extends Component{
       <>
       <div className="register"></div>
       <form className="RegisterForm">
-        <div class="form-row">
-          <div class="form-group col-md-6">
+        <div className="form-row">
+          <div className="form-group col-md-6">
           <label htmlFor="username">Username: </label>
           <input type="text" required
                   className="form-control"
@@ -86,7 +91,7 @@ export default class RegisterForm extends Component{
                   id="username"
                   placeholder="username" />
         </div>
-        <div class="form-group col-md-6">
+        <div className="form-group col-md-6">
           <label htmlFor="password">Password: </label>
           <input type="password" required
                   className="form-control"
@@ -111,14 +116,6 @@ export default class RegisterForm extends Component{
                   id="zipcode"
                   placeholder="zipcode" />
         </div>
-        {/* <div className="form-group">
-          <label htmlFor="lng">Lng: </label>
-          <input type="text" required
-                  className="form-control"
-                  onChange={this.handleFieldChange}
-                  id="lng"
-                  placeholder="Lng" />
-        </div> */}
         <div className="form-group">
           <label htmlFor="lng">Select a language: </label>
           <select 
@@ -135,12 +132,19 @@ export default class RegisterForm extends Component{
                   
           </select>
           <div className="form-group">
+          <label htmlFor="photoURL">Photo URL: </label>
+          <input type="text" required
+                  className="form-control"
+                  onChange={this.handleFieldChange}
+                  id="photoURL"
+                  placeholder="photoURL" />
+          </div>
+          <div className="form-group">
           
           <label htmlFor="rate">Proficiency:</label>
           <ResetRating 
             id="rating"
             onChange={this.handleRatingChange}
-            // onChange={this.handleRatingChange}
             />
           </div>
         </div>

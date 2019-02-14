@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
 import "./Messages.css"
 import MessageManager from '../../modules/MessageManager';
-import FriendManager from '../../modules/FriendManager';
 
 export default class MessageBubbles extends Component {
 

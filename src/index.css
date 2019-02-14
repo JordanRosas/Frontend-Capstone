@@ -12,7 +12,8 @@
   height:100vh;
   margin-top:-48px;
 }
-.home{
+.home,
+.friend{
   background-image: url('../src/assets/home.jpg');
   background-position: center;
   background-size: cover;
