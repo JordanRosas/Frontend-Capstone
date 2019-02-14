@@ -40,7 +40,6 @@ constructFriend = (userId) => {
                     </div>
                   </div>
             })  
-            
           }
           </section>
           

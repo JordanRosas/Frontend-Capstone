@@ -21,16 +21,6 @@
       "id": 2
     },
     {
-      "username": "Joey",
-      "password": "asd",
-      "email": "jbaugh78@msn.com",
-      "lat": 36.0725,
-      "lng": -86.724,
-      "photoURL": "https://www.washingtonpost.com/resizer/R1_FqhFR3OS12ysMxvaw_Q1VMc4=/480x0/arc-anglerfish-washpost-prod-washpost.s3.amazonaws.com/public/QJSPSBB7ZEI6RDKT5OQO2I3RZQ.jpg",
-      "zipcode": 37211,
-      "id": 3
-    },
-    {
       "username": "HunterJames",
       "password": "12345",
       "email": "huntermetts@me.com",
