@@ -2,7 +2,7 @@
 
 ![](https://github.com/JordanRosas/Frontend-Capstone/blob/master/public/PolyglotPal.png)
 
-## Polyglot Pal is aimed toward those who wish to learn another language and make a friend in the process.
+## Polyglot Pal is for those who wish to learn another language and make a friend in the process.
 - Login and and search for a language you'd like to learn:
 - Want to meet with a native speaker? a beginner?
 - See other users proficiency in that language.
