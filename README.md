@@ -1,6 +1,6 @@
 # Polyglot Pal
 
-![]()
+![](https://github.com/JordanRosas/Frontend-Capstone/blob/master/public/PolyglotPal.png)
 
 ## Polyglot Pal is aimed toward those who wish to learn another language and make a friend in the process.
 - Login and and search for a language you'd like to learn:
