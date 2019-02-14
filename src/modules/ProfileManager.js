@@ -4,6 +4,9 @@ export default{
   get(){
   return fetch(`${localHost}/userLanguages`).then(response => response.json())
   },
+  getUserLangsById(id){
+    return fetch(`${localHost}/userLanguages/${id}`).then(res => res.json())
+  },
   getUserById(id){
     return fetch(`${localHost}/users/${id}`).then(res => res.json())
   },

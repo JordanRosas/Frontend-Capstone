@@ -11,6 +11,7 @@ constructFriend = (userId) => {
       userId:userId
     }
     this.props.followFriend(friendObject)
+    alert("You are now following ")
   }
   
     
@@ -29,7 +30,7 @@ constructFriend = (userId) => {
                       <p className="border"></p>
                       <img className="userPid" src={userLanguage.user.photoURL} alt="user" />
                       <p>Rate: {userLanguage.rate} out of 5</p>
-                      <p className="language">Languages: {this.props.languages.map(language => {
+                      <p className="language">Speaks: {this.props.languages.map(language => {
                         if(userLanguage.languageId === language.id){
                           return language.language
                         }

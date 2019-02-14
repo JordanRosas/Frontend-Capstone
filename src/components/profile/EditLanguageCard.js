@@ -1,14 +1,33 @@
 import React, { Component } from 'react'
 import SearchManager from '../../modules/SearchManager'
-import ResetRating from '../Rating/RatingSystem'
+import ProfileManager from '../../modules/ProfileManager';
+import Rating from 'react-rating'
 export default class EditLanguageCard extends Component{
   state={
     languageId:"",
     notes:"",
     flagPhotoURL:"",
-    rate:"",
+    rate:0,
     userId:Number(sessionStorage.getItem("username")),
     languages:[]
+  }
+  componentDidMount(){
+    this.buildLanguageOptions()
+
+    // let userId = sessionStorage.getItem("username")
+    // let currentUser = Number(userId)
+    ProfileManager.getUserLangsById(this.props.match.params.id)
+    // .then(userLangs => console.log(userLangs))
+    .then(userLangs => {
+      this.setState({
+        languageId:userLangs.languageId,
+        notes:userLangs.notes,
+        flagPhotoURL:userLangs.flagPhotoURL,
+        rate:userLangs.rate,
+      })
+    })
+
+    
   }
   handleFieldChange= evt =>{
     evt.preventDefault()
@@ -33,9 +52,7 @@ export default class EditLanguageCard extends Component{
       this.setState({languages:languages})
     })
   }
-  componentDidMount(){
-    this.buildLanguageOptions()
-  }
+
   updateExistingCard = evt => {
     evt.preventDefault()
 
@@ -56,14 +73,15 @@ export default class EditLanguageCard extends Component{
       <form className="editProfile">
         <div className="form-row">
           <div className="form-group col-md-6">
-          <label htmlFor="lng">Select a language: </label>
-          <select 
+          <label htmlFor="lng">Your language: </label>
+          <select
+                  value={this.state.languageId} 
                   className="form-control"
                   type="select-multiple"
                   onChange={this.handleFieldChange}
                   id="languageId"
                   placeholder="Select a language">
-                  <option key={0} defaultValue="">English</option>
+                  <option key={0} defaultValue="">Select a Language</option>
                   {
                     this.state.languages.map(language => (
                       <option key={language.id} value={language.id}>{language.language}</option>
@@ -79,8 +97,9 @@ export default class EditLanguageCard extends Component{
                   className="form-control"
                   onChange={this.handleFieldChange}
                   id="flagPhotoURL"
-                  // value={this.props.input.flagPhotoURL}
-                  placeholder="Email" />
+                  value={this.state.flagPhotoURL}
+                  // placeholder="Email" 
+                  />
         </div>
         </div>
         
@@ -90,14 +109,15 @@ export default class EditLanguageCard extends Component{
                   className="form-control"
                   onChange={this.handleFieldChange}
                   id="notes"
-                  value={this.props.notes}
-                  placeholder="Notes..." />
+                  value={this.state.notes}
+                  // placeholder="Notes..."
+                  />
         </div>
         <div className="form-group">
           
-          <label htmlFor="rate">Proficiency:</label>
-          <ResetRating 
-            // value={this.props.input.rate}
+          <label htmlFor="rate">Skill Level:</label>
+          <Rating 
+            placeholderRating={this.state.rate}
             id="rating"
             onChange={this.handleRatingChange}
             />

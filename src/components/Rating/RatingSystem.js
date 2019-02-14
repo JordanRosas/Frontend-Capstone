@@ -4,7 +4,7 @@ import Rating from 'react-rating'
 export default class ResetRating extends Component {
   constructor(props) {
     super(props);
-    this.state = ({value: 0});
+    this.state = ({value: this.props.rate});
 
     this.handleClick = this.handleClick.bind(this);
   }
@@ -16,7 +16,7 @@ export default class ResetRating extends Component {
   render() {
     return (
       <div>
-        <Rating {...this.props}  initialRating={this.state.value} />
+        <Rating {...this.props}  placeholderRating={this.state.value} />
         {/* <button onClick={this.handleClick}>Reset</button> */}
       </div>
     );

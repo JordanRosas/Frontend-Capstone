@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import SearchManager from '../../modules/SearchManager'
 import ResetRating from '../Rating/RatingSystem'
+import Rating from 'react-rating'
 import './RegisterForm.css'
 
 var zipcodes = require('zipcodes')
@@ -13,7 +14,7 @@ export default class RegisterForm extends Component{
     lat:"",
     lng:"",
     photoURL:"",
-    rate:"",
+    rate:0,
     userId:"",
     notes:"",
     flagPhotoURL:"",
@@ -142,9 +143,10 @@ export default class RegisterForm extends Component{
           <div className="form-group">
           
           <label htmlFor="rate">Proficiency:</label>
-          <ResetRating 
+          <Rating 
             id="rating"
             onChange={this.handleRatingChange}
+            initialRating={this.state.rate}
             />
           </div>
         </div>

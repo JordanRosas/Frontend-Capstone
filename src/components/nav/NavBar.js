@@ -73,7 +73,7 @@ import './Navbar.css'
             </MenuList>
             <Divider />
             <MenuList>
-                <MenuItem className="signout" onClick={this.endSessionStorage} component={Link} to='/login'>
+                <MenuItem className="signout" onClick={this.endSessionStorage} component={Link} to='/'>
                     <IconButton>
                         <SkipPreviousIcon color='action' />
                     </IconButton>
