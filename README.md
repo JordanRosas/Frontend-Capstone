@@ -26,14 +26,14 @@
 Thank you!
 
 ## Technologies Used To Build This Application
-> React
-> Bootstrap 4
-> Material UI
+> React,
+> Bootstrap 4,
+> Material UI,
 > JSON server
 
 ## Additional Dependencies Used
-> zipcode
-> react-rate
+> zipcode,
+> react-rate,
 
 ### Nashville Software School Front End Capstone
 
