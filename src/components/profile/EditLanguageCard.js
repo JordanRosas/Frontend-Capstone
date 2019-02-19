@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import SearchManager from '../../modules/SearchManager'
 import ProfileManager from '../../modules/ProfileManager';
 import Rating from 'react-rating'
+import './editLangCard.css'
 export default class EditLanguageCard extends Component{
   state={
     languageId:"",

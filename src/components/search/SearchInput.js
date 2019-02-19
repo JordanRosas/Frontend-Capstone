@@ -23,7 +23,7 @@ class SearchInput extends Component{
       <>
       <div className="bootstrap-override">
         <div className="container">
-          <h1 className="display-4 homeHeader">Find a language partner</h1>
+          <h1 className="display-4 homeHeader">Find a Language Partner</h1>
           <form className="searchForm" onSubmit={this.handleSearch}>
           <input 
               type="text" required

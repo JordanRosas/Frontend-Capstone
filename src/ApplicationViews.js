@@ -53,6 +53,7 @@ export default class ApplicationViews extends Component{
         })
       })
   }
+  
 
 
   postNewUser = newUser => 
@@ -183,9 +184,13 @@ export default class ApplicationViews extends Component{
         <Route exact path="/profile" render={props => {
           if(this.isAuthenticated()){
             return <UserProfile {...props}
-            userLanguages={this.props.userLanguages}
-            users={this.state.users}
+            // userLanguages={this.props.userLanguages}
+            // users={this.state.users}
             delete={this.deleteCardFromProfile}
+            getUserLanguages={this.getUserLanguages}
+            languages={this.state.languages}
+            editCard={this.editCard}
+            postNewUserLanguageCardToProfile={this.postNewUserLanguageCardToProfile}
             />
           }else{
             return <Redirect to="/" />

@@ -1,12 +1,12 @@
 import React, { Component } from 'react'
 import SearchManager from '../../modules/SearchManager'
-import ResetRating from '../Rating/RatingSystem'
+import Rating from 'react-rating'
 export default class NewUserLanguage extends Component{
   state={
     languageId:"",
     notes:"",
     flagPhotoURL:"",
-    rate:"",
+    rate:0,
     userId:Number(sessionStorage.getItem("username")),
     languages:[]
   }
@@ -93,10 +93,10 @@ export default class NewUserLanguage extends Component{
         <div className="form-group">
           
           <label htmlFor="rate">Proficiency:</label>
-          <ResetRating 
-            value={this.state.rate}
+          <Rating 
             id="rating"
             onChange={this.handleRatingChange}
+            initialRating={this.state.rate}
             />
           </div>
       <button type="button" onClick={this.createNewUserLanguageObject}>Post</button>

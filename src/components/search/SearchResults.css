@@ -11,6 +11,9 @@
   height:vh;
   box-shadow: 1px 2px 1px 1px  lightgray;
 }
+#card{
+  border-radius:0%;
+}
 .button {
   background-color: #4CAF50;
   background-image:url("../../assets/plus-16.png");
@@ -34,7 +37,7 @@
 }
 .button:hover{
 cursor:pointer;
-transform:scale(1.1)rotate(90deg);
+transform:scale(1.1);
 }
 .card-title{
   display: flex;

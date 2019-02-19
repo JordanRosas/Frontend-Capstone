@@ -90,7 +90,7 @@ export default class RegisterForm extends Component{
                   className="form-control"
                   onChange={this.handleFieldChange}
                   id="username"
-                  placeholder="username" />
+                  placeholder="Username" />
         </div>
         <div className="form-group col-md-6">
           <label htmlFor="password">Password: </label>
@@ -98,7 +98,7 @@ export default class RegisterForm extends Component{
                   className="form-control"
                   onChange={this.handleFieldChange}
                   id="password"
-                  placeholder="password" />
+                  placeholder="Password" />
         </div>
         </div>
         <div className="form-group">
@@ -115,10 +115,10 @@ export default class RegisterForm extends Component{
                   className="form-control"
                   onChange={this.handleFieldChange}
                   id="zipcode"
-                  placeholder="zipcode" />
+                  placeholder="Zipcode" />
         </div>
         <div className="form-group">
-          <label htmlFor="lng">Select a language: </label>
+          <label htmlFor="lng">Language You Speak: </label>
           <select 
                   className="form-control"
                   onChange={this.handleFieldChange}
@@ -138,11 +138,11 @@ export default class RegisterForm extends Component{
                   className="form-control"
                   onChange={this.handleFieldChange}
                   id="photoURL"
-                  placeholder="photoURL" />
+                  placeholder="Photo URL" />
           </div>
+          <label htmlFor="rate">Skill Level:</label>
           <div className="form-group">
           
-          <label htmlFor="rate">Proficiency:</label>
           <Rating 
             id="rating"
             onChange={this.handleRatingChange}

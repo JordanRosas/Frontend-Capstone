@@ -31,9 +31,7 @@
   flex-direction:row;
   margin-top:-320px;
   margin-left:355px;
-  justify-content: space-evenly;
-  /* width:60%; */
-  z-index:1000;
+  justify-content: space-around;
 }
 .card-front{
   width:225px;
@@ -95,4 +93,35 @@
   position:absolute;
   left:13%;
   top:56.5%;
+}
+#deleteButton{
+  background-color:#d06e6e;
+  color:white;
+  border:0;
+  font-family: 'Arial', cursive;
+  position:absolute;
+  top:85.5%;
+  left:0%;
+  width:100%;
+  padding:10px;
+}
+#deleteButton:hover{
+  cursor:pointer;
+}
+/* #editLink{
+  color:white;
+  padding:5px;
+  width:99.5%;
+  background-color:#00e676;
+  position:absolute;
+  left:0px;
+  bottom:0px;
+  top:71%; */
+/* } */
+.editTab{
+  margin-top:80px;
+}
+.editProfile{
+  margin:0 auto;
+  width:100%;
 }

@@ -69,7 +69,7 @@ export default class Messages extends Component {
         return (
         <>
         <div className="banner">
-        <h1>Message</h1>
+        <h1>Group Chat</h1>
         </div>
             <section className="chatroom">
                 
