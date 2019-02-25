@@ -1,0 +1,19 @@
+.editTheProfile{
+  margin:0 auto;
+  width:40%;
+  margin-top:90px;
+  background-color:#90a4ae;
+  padding:40px;
+  opacity:0.95;
+  border-radius:20px;
+  color:black;
+  font-weight:bold;
+  box-shadow:2px 2px 8px black;
+}
+.editLanguageContainer{
+  background-image:url('../../assets/map.png');
+  background-size:cover;
+  background-position:center;
+  height:78.2vh;
+  overflow:hidden;
+}

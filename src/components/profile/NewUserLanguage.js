@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import SearchManager from '../../modules/SearchManager'
 import ResetRating from '../Rating/RatingSystem'
+import './NewUserLang.css'
 export default class NewUserLanguage extends Component{
   state={
     languageId:"",
@@ -50,7 +51,12 @@ export default class NewUserLanguage extends Component{
 
   render(){
     return(
-      <form className="editProfile">
+      <>
+      <div className="banner">
+        <h1>New Language</h1>
+      </div>
+      <div className="newLangBackground">
+      <form className="newLanguage">
         <div className="form-row">
           <div className="form-group col-md-6">
           <label htmlFor="lng">Select a language: </label>
@@ -101,6 +107,8 @@ export default class NewUserLanguage extends Component{
           </div>
       <button type="button" onClick={this.createNewUserLanguageObject}>Post</button>
       </form>
+      </div>
+      </>
     )
   }
 }

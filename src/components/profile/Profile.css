@@ -25,6 +25,8 @@
 }
 #button{
   margin-top:100px;
+  width:75%;
+  margin-left:150px;
 }
 .cardDeck{
   display:flex;
@@ -95,4 +97,44 @@
   position:absolute;
   left:13%;
   top:56.5%;
+}
+.profileBackground{
+  background-image:url('../../assets/siteImage.png');
+  background-size:cover;
+  background-position:center;
+  height:78.2vh;
+  overflow:hidden;
+}
+#deleteButton{
+  background-color:#d06e6e;
+  color:white;
+  border:0;
+  font-family: 'Arial', cursive;
+  position:absolute;
+  top:85.5%;
+  left:0%;
+  width:100%;
+  padding:10px;
+}
+#deleteButton:hover{
+  cursor:pointer;
+}
+#editTab{
+  color:white;
+  padding:5px;
+  width:99.5%;
+  background-color:#59c0ff;
+  position:absolute;
+  left:0px;
+  bottom:0px;
+  top:71%; 
+}
+#editInformation{
+  background-color:#607d8b;
+  width:20%;
+  margin-left:10px;
+  text-align:center;
+  color:white;
+  border-radius:5px;
+
 }

@@ -42,6 +42,7 @@ render(){
       <div className="banner">
         <h1>Profile</h1>
       </div>
+      <div className="profileBackground">
       <div className="mainContainer">
         {
           this.state.users.map(user => {
@@ -51,7 +52,7 @@ render(){
                         <figcaption className="userTag">
                           <h5 className="profileName">Name: {user.username}</h5>
                           <h5 className="profileArea">Area: {user.zipcode}</h5>
-                          <Link className="nav-link" to={`/profile/${user.id}/edit/profileImage/location`}>Edit</Link>
+                          <Link className="nav-link" id="editInformation" to={`/profile/${user.id}/edit/profileImage/location`}>Edit</Link>
                         </figcaption>
                       </figure>
 
@@ -68,7 +69,7 @@ render(){
                                       <p>Fluency {userLang.rate} out of 5</p> 
                                       <p>{userLang.notes}</p>
                                       {/* <p>We love that guy</p> */}
-                                      <Link className="nav-link" to={`/profile/${userLang.id}/edit`}>Edit</Link>
+                                      <Link className="nav-link" id="editTab" to={`/profile/${userLang.id}/edit`}>Edit</Link>
                                       <button 
                                       id="deleteButton"
                                       type="button" 
@@ -96,7 +97,8 @@ render(){
                     </div>
                     })
                 }
-          </div>    
+          </div> 
+          </div>   
       </>
                 
   )

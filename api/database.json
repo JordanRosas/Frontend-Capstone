@@ -1,7 +1,7 @@
 {
   "users": [
     {
-      "username": "Jordan",
+      "username": "Jord",
       "password": "asd",
       "email": "jordanrosas1203@gmail.com",
       "lat": 35.9307,
@@ -44,9 +44,9 @@
   "userLanguages": [
     {
       "languageId": 2,
-      "notes": "I'm Alright!",
+      "notes": "I am conversational!",
       "flagPhotoURL": "https://upload.wikimedia.org/wikipedia/en/c/c3/Flag_of_France.svg",
-      "rate": 5,
+      "rate": 4,
       "userId": 1,
       "id": 2
     },
@@ -73,14 +73,6 @@
       "rate": 5,
       "userId": 1,
       "id": 6
-    },
-    {
-      "languageId": 3,
-      "notes": "still really good",
-      "flagPhotoURL": "https://images-na.ssl-images-amazon.com/images/I/510K528WS5L.gif",
-      "rate": 5,
-      "userId": 1,
-      "id": 7
     },
     {
       "languageId": 1,
@@ -146,6 +138,11 @@
       "currentUserId": 1,
       "userId": 4,
       "id": 8
+    },
+    {
+      "currentUserId": 1,
+      "userId": 2,
+      "id": 9
     }
   ],
   "messages": [

@@ -6,6 +6,13 @@
 #message{
   margin:0 auto;
 }
+.messageWrapper{
+  background-image: url('../../assets/siteImage.png');
+  background-position: center;
+  background-size: cover;
+  height:78.2vh;
+  overflow: hidden
+}
 
 .chat_box {
   border: 1px solid #666;

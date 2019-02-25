@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import ProfileManager from '../../modules/ProfileManager';
 // import SearchManager from '../../modules/SearchManager'
 // import ResetRating from '../Rating/RatingSystem'
+import './EditUserDetails.css'
 var zipcodes = require('zipcodes')
 export default class EditUserDetails extends Component{
   state={
@@ -53,7 +54,12 @@ export default class EditUserDetails extends Component{
 
   render(){
     return(
-      <form>
+      <>
+      <div className="banner">
+        <h1>Edit Your Profile</h1>
+      </div>
+      <div className="detailBackground">
+      <form className="detailForm">
         <div className="form-row">
           <div className="form-group col-md-6">
           <label htmlFor="username">Username: </label>
@@ -108,7 +114,8 @@ export default class EditUserDetails extends Component{
           </div>
           <button type="button" onClick={this.updateExistingUser}>Update</button>
         </form>
-
+        </div>
+        </>
     )
   }
 }

@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import SearchManager from '../../modules/SearchManager'
 import ProfileManager from '../../modules/ProfileManager';
 import Rating from 'react-rating'
+import './EditLanguage.css'
 export default class EditLanguageCard extends Component{
   state={
     languageId:"",
@@ -70,7 +71,12 @@ export default class EditLanguageCard extends Component{
 
   render(){
     return(
-      <form className="editProfile">
+      <>
+      <div className="banner">
+      <h1>Edit Your Profile</h1>
+      </div>
+      <div className="editLanguageContainer">
+      <form className="editTheProfile">
         <div className="form-row">
           <div className="form-group col-md-6">
           <label htmlFor="lng">Your language: </label>
@@ -113,9 +119,9 @@ export default class EditLanguageCard extends Component{
                   // placeholder="Notes..."
                   />
         </div>
+        <label htmlFor="rate">Skill Level:</label>
         <div className="form-group">
           
-          <label htmlFor="rate">Skill Level:</label>
           <Rating 
             placeholderRating={this.state.rate}
             id="rating"
@@ -124,6 +130,8 @@ export default class EditLanguageCard extends Component{
           </div>
       <button type="button" onClick={this.updateExistingCard}>Update</button>
       </form>
+      </div>
+      </>
     )
   }
 }

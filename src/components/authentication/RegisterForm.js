@@ -118,13 +118,13 @@ export default class RegisterForm extends Component{
                   placeholder="zipcode" />
         </div>
         <div className="form-group">
-          <label htmlFor="lng">Select a language: </label>
+          <label htmlFor="lng">What language do you want to learn: </label>
           <select 
                   className="form-control"
                   onChange={this.handleFieldChange}
                   id="language"
                   placeholder="Select a language">
-                  <option key={0} defaultValue="">English</option>
+                  <option key={0} defaultValue="">Please choose an option</option>
                   {
                     this.state.languages.map(language => (
                       <option key={language.id} value={language.id}>{language.language}</option>
@@ -140,9 +140,8 @@ export default class RegisterForm extends Component{
                   id="photoURL"
                   placeholder="photoURL" />
           </div>
+          <label htmlFor="rate">Skill level:</label>
           <div className="form-group">
-          
-          <label htmlFor="rate">Proficiency:</label>
           <Rating 
             id="rating"
             onChange={this.handleRatingChange}

@@ -71,6 +71,7 @@ export default class Messages extends Component {
         <div className="banner">
         <h1>Message</h1>
         </div>
+        <div className="messageWrapper">
             <section className="chatroom">
                 
                 <div className="chat_box" ref={`chatBox`}>
@@ -93,6 +94,7 @@ export default class Messages extends Component {
                     </div>
                 </form>
             </section>
+            </div>
             </>
         )
     }

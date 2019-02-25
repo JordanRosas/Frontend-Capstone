@@ -14,9 +14,9 @@
 }
 .home,
 .friend{
-  background-image: url('../src/assets/home.jpg');
+  background-image: url('../src/assets/siteImage.png');
   background-position: center;
   background-size: cover;
   height:100vh;
-  margin-top:-48px;
+  /* margin-top:-48px; */
 }
