@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import SearchManager from '../../modules/SearchManager'
-import ResetRating from '../Rating/RatingSystem'
+import Rating from 'react-rating'
+
 import './NewUserLang.css'
 export default class NewUserLanguage extends Component{
   state={
@@ -66,7 +67,7 @@ export default class NewUserLanguage extends Component{
                   onChange={this.handleFieldChange}
                   id="languageId"
                   placeholder="Select a language">
-                  <option key={0} defaultValue="">English</option>
+                  <option key={0} defaultValue="">Select a language</option>
                   {
                     this.state.languages.map(language => (
                       <option key={language.id} value={language.id}>{language.language}</option>
@@ -83,7 +84,7 @@ export default class NewUserLanguage extends Component{
                   onChange={this.handleFieldChange}
                   id="flagPhotoURL"
                   value={this.flagPhotoURL}
-                  placeholder="Email" />
+                  placeholder="Flag Photo URL" />
         </div>
         </div>
         
@@ -96,11 +97,10 @@ export default class NewUserLanguage extends Component{
                   value={this.state.notes}
                   placeholder="Notes..." />
         </div>
-        <div className="form-group">
-          
           <label htmlFor="rate">Proficiency:</label>
-          <ResetRating 
-            value={this.state.rate}
+        <div className="form-group">
+          <Rating 
+            placeholderRating={this.state.rate}
             id="rating"
             onChange={this.handleRatingChange}
             />

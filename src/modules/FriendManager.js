@@ -26,5 +26,9 @@ export default{
   },
   getFriendsExpand(){
     return fetch(`${localHost}/friends?_expand=user`).then(res => res.json())
+  },
+  getFriendship(currentUserId, userId){
+    return fetch(`${localHost}/friends?currentUserId=${currentUserId}&userId=${userId}`)
+    .then(e => e.json())
   }
 }
