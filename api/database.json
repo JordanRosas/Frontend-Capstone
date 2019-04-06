@@ -137,6 +137,11 @@
       "currentUserId": 5,
       "userId": 1,
       "id": 7
+    },
+    {
+      "currentUserId": 1,
+      "userId": 2,
+      "id": 8
     }
   ],
   "messages": [
